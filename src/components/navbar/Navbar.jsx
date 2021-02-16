@@ -14,7 +14,7 @@ import logo from "../../assets/ren_logo.PNG";
 import useStyles from "./styles";
 import { Link, useLocation } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ totalItems }) => {
   const classes = useStyles();
   const location = useLocation();
 
@@ -46,7 +46,7 @@ const Navbar = () => {
                 aria-label="View cart"
                 color="inherit"
               >
-                <Badge badgeContent={2} color="secondary">
+                <Badge badgeContent={totalItems} color="secondary">
                   <ShoppingCart />
                 </Badge>
               </IconButton>

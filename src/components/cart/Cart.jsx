@@ -7,9 +7,9 @@ import CartItem from "./cartitem/CartItem";
 
 const Cart = ({
   cart,
-  handleUpdateCartQty,
-  handleRemoveFromCart,
-  handleEmptyCart,
+  onUpdateCartQty,
+  onRemoveFromCart,
+  onEmptyCart,
 }) => {
   const classes = useStyles();
 
@@ -27,8 +27,8 @@ const Cart = ({
           <Grid item xs={12} sm={4} key={item.id}>
             <CartItem
               item={item}
-              onUpdateCartQty={handleUpdateCartQty}
-              onRemoveFromCart={handleRemoveFromCart}
+              onUpdateCartQty={onUpdateCartQty}
+              onRemoveFromCart={onRemoveFromCart}
             />
           </Grid>
         ))}
@@ -44,7 +44,7 @@ const Cart = ({
             type="button"
             variant="contained"
             color="secondary"
-            onClick={handleEmptyCart}
+            onClick={onEmptyCart}
           >
             Empty cart
           </Button>
