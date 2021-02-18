@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Paper,
   Stepper,
@@ -49,11 +50,34 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     nextStep();
   };
 
-  const Confirmation = () => (
+  let Confirmation = () =>
+    order.customer ? (
+      <>
+        <div>
+          <Typography variant="h5">Thank you for your purchase!</Typography>
+          <Divider className={classes.divider} />
+          <Typography variant="subtitle2">Order: {order.customer.reference}</Typography>
+        </div>
+        <br />
+        <Button component={Link} to="/" variant="outlined" type="button">
+          Home
+        </Button>
+      </>
+    ) : (
+      <div className={classes.spinner}>
+        <CircularProgress />
+      </div>
+    );
+
+  if (error) {
     <>
-      <div>Confirmation</div>
-    </>
-  );
+      <Typography variant="h5">Error: {error}</Typography>
+      <br />
+      <Button component={Link} to="/" variant="outlined" type="button">
+        Home
+      </Button>
+    </>;
+  }
 
   const Form = () =>
     activeStep === 0 ? (
