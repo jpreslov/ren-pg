@@ -1,16 +1,11 @@
-import React from "react";
-import { Container, Typography, Button, Grid } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Container, Typography, Button, Grid } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
-import useStyles from "./styles";
-import CartItem from "./cartitem/CartItem";
+import useStyles from './styles';
+import CartItem from './cartitem/CartItem';
 
-const Cart = ({
-  cart,
-  onUpdateCartQty,
-  onRemoveFromCart,
-  onEmptyCart,
-}) => {
+const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   const classes = useStyles();
 
   const EmptyCart = () => (
@@ -20,41 +15,22 @@ const Cart = ({
     </Typography>
   );
 
-  const FilledCart = () => (
+  const renderCart = () => (
     <>
       <Grid container spacing={3}>
         {cart.line_items.map((item) => (
           <Grid item xs={12} sm={4} key={item.id}>
-            <CartItem
-              item={item}
-              onUpdateCartQty={onUpdateCartQty}
-              onRemoveFromCart={onRemoveFromCart}
-            />
+            <CartItem item={item} onUpdateCartQty={onUpdateCartQty} onRemoveFromCart={onRemoveFromCart} />
           </Grid>
         ))}
       </Grid>
       <div className={classes.cartDetails}>
-        <Typography variant="h4">
-          Subtotal: {cart.subtotal.formatted_with_symbol}
-        </Typography>
+        <Typography variant="h4">Subtotal: {cart.subtotal.formatted_with_symbol}</Typography>
         <div>
-          <Button
-            className={classes.emptyButton}
-            size="large"
-            type="button"
-            variant="contained"
-            color="secondary"
-            onClick={onEmptyCart}
-          >
+          <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={onEmptyCart}>
             Empty cart
           </Button>
-          <Button component={Link} to="/checkout"
-            className={classes.checkoutButton}
-            size="large"
-            type="button"
-            variant="contained"
-            color="primary"
-          >
+          <Button component={Link} to="/checkout" className={classes.checkoutButton} size="large" type="button" variant="contained" color="primary">
             Checkout
           </Button>
         </div>
@@ -62,7 +38,7 @@ const Cart = ({
     </>
   );
 
-  if (!cart.line_items) return "Loading...";
+  if (!cart.line_items) return 'Loading...';
 
   return (
     <Container>
@@ -70,7 +46,7 @@ const Cart = ({
       <Typography className={classes.title} variant="h3" gutterBottom>
         Your cart
       </Typography>
-      {!cart.line_items.length ? <EmptyCart /> : <FilledCart />}
+      {!cart.line_items.length ? EmptyCart() : renderCart()}
     </Container>
   );
 };
