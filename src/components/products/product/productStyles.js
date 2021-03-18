@@ -11,10 +11,10 @@ export default makeStyles(() => ({
   },
   cardActions: {
     display: 'flex',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
   },
   cardContent: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
 }));
