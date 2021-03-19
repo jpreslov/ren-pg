@@ -9,6 +9,7 @@ import useStyles from './productDetailsStyles';
 
 const ProductDetails = ({ onAddToCart }) => {
   const [product, setProduct] = useState({});
+  const [size, setSize] = useState('');
   const classes = useStyles();
   const { id } = useParams();
 
@@ -27,32 +28,34 @@ const ProductDetails = ({ onAddToCart }) => {
 
   return (
     <>
-      <Grid className={classes.grid}>
-        <Card className={classes.root}>
-          <CardMedia className={classes.media} image={product.media?.source} title={product.name} />
-          <CardContent>
-            <div className={classes.cardContent}>
-              <Typography gutterBottom variant="h5" component="h2">
-                {product.name}
-              </Typography>
-              <Typography gutterBottom variant="h5" component="h2">
-                ${product.price?.formatted}
-              </Typography>
-            </div>
-            <Typography dangerouslySetInnerHTML={{ __html: product.description }} variant="body2" color="textSecondary" component="p" />
-          </CardContent>
-          <CardActions disableSpacing className={classes.cardActions}>
-            <Select>
-              {product.variants?.map((variant) => (
-                <MenuItem>{variant.name}</MenuItem>
-              ))}
-            </Select>
-            <Button aria-label="Add to Cart" onClick={onAddToCart}>
-              Add to Cart
-            </Button>
-          </CardActions>
-        </Card>
-      </Grid>
+      <main className={classes.content}>
+        <Grid className={classes.grid}>
+          <Card className={classes.root}>
+            <CardMedia className={classes.media} image={product.media?.source} title={product.name} />
+            <CardContent>
+              <div className={classes.cardContent}>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {product.name}
+                </Typography>
+                <Typography gutterBottom variant="h5" component="h2">
+                  ${product.price?.formatted}
+                </Typography>
+              <Typography dangerouslySetInnerHTML={{ __html: product.description }} variant="body2" color="textSecondary" component="p" />
+              </div>
+            </CardContent>
+            <CardActions className={classes.cardActions}>
+              <Select>
+                {product.variants?.map((variant) => (
+                  <MenuItem onChange={setSize}>{variant.name}</MenuItem>
+                ))}
+              </Select>
+              <Button aria-label="Add to Cart" onClick={onAddToCart}>
+                Add to Cart
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
+      </main>
     </>
   );
 };

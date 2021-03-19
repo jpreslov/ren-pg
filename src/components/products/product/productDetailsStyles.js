@@ -1,26 +1,44 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    maxWidth: '100%',
+    display: 'flex-column',
     marginTop: '32vh',
+    backgroundColor: 'inherit',
+    boxShadow: 'none',
+    maxHeight: '90%',
+    maxWidth: '60vw',
+    marginInline: 'auto',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+    flexWrap: 'wrap',
   },
+  content: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.default,
+    padding: theme.spacing(3),
+  },
+
   grid: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   media: {
-    minWidth: '60%',
-    minHeight: '90%',
-    padding: '36.25%', // 16:9
+    justifySelf: 'center',
+    maxWidth: '20%',
+    maxHeight: '20%',
+    padding: '26.25%', // 16:9,
+    marginInline: 'auto'
   },
   cardActions: {
     display: 'flex',
-    justifyContent: 'center',
+    flexDirection: 'column',
+    justifyContent: 'end',
   },
   cardContent: {
     display: 'flex',
-    justifyContent: 'center',
+    flexDirection: 'column',
+    textAlign: 'center',
   },
 }));
