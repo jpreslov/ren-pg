@@ -1,9 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles';
-// import { makeStyles as navbarStyles } from '../navbar/styles'
 
 export default makeStyles((theme) => ({
   grid: {
-    marginTop: '18vh' //fix later lol
+    marginTop: '18vh', //fix later lol
   },
   toolbar: theme.mixins.toolbar,
   content: {
@@ -41,17 +40,3 @@ export default makeStyles((theme) => ({
     alignContent: 'center',
   },
 }));
-
-// import { makeStyles } from '@material-ui/core/styles';
-
-// export default makeStyles((theme) => ({
-  // toolbar: theme.mixins.toolbar,
-  // content: {
-  //   flexGrow: 1,
-  //   backgroundColor: theme.palette.background.default,
-  //   padding: theme.spacing(3),
-  // },
-//   root: {
-//     flexGrow: 1,
-//   },
-// }));
