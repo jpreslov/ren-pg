@@ -25,11 +25,9 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
   },
   media: {
-    justifySelf: 'center',
-    maxWidth: '20%',
-    maxHeight: '20%',
-    padding: '26.25%', // 16:9,
-    marginInline: 'auto'
+    minWidth: '50%',
+    minHeight: '70%',
+    padding: '36.25%', // 16:9
   },
   cardActions: {
     display: 'flex',

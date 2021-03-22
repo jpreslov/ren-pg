@@ -46,7 +46,7 @@ const ProductDetails = ({ onAddToCart }) => {
             <CardActions className={classes.cardActions}>
               <Select>
                 {product.variants?.map((variant) => (
-                  <MenuItem onChange={setSize}>{variant.name}</MenuItem>
+                  <MenuItem onChange={(e) => setSize(e.target)}>{variant.name}</MenuItem>
                 ))}
               </Select>
               <Button aria-label="Add to Cart" onClick={onAddToCart}>

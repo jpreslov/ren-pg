@@ -8,32 +8,29 @@ import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = ({ totalItems }) => {
   const classes = useStyles();
-  const location = useLocation();
 
   return (
     <>
-      <AppBar position="fixed" className={classes.appBar} color="inherit" styles={{ marginBottom: '10vh' }}>
-        <Toolbar>
+      <AppBar position="fixed" className={classes.appBar} color="inherit">
+        {/* <Toolbar className={classes.toolBar}> */}
           <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
             <img src={logo} alt="Rendezvous P.G." className={classes.image} />
             {/* Rendezvous PG */}
           </Typography>
           <div className={classes.grow} />
-        </Toolbar>
+        {/* </Toolbar> */}
         <Toolbar className={classes.title}>
-          {location.pathname === '/' && (
-              <ButtonGroup className={classes.buttonGroup} variant="text" color="primary" aria-label="2nd-nav">
-                <Button component={Link} to="/" aria-label="View cart" color="inherit">
-                  Shop
-                </Button>
-                <Button component={Link} to="/info" aria-label="View cart" color="inherit">
-                  Info
-                </Button>
-                <Button component={Link} to="/cart" aria-label="View cart" color="inherit">
-                  Cart
-                </Button>
-              </ButtonGroup>
-          )}
+            <ButtonGroup className={classes.buttonGroup} variant="text" color="primary" aria-label="2nd-nav">
+              <Button component={Link} to="/" aria-label="View products" color="inherit">
+                Shop
+              </Button>
+              <Button component={Link} to="/info" aria-label="Info" color="inherit">
+                Info
+              </Button>
+              <Button component={Link} to="/cart" aria-label="View cart" color="inherit">
+                Cart
+              </Button>
+            </ButtonGroup>
         </Toolbar>
       </AppBar>
     </>

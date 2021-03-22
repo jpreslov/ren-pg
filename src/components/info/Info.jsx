@@ -1,12 +1,51 @@
-import React from 'react'
-// import {}
+import React from 'react';
+import { Grid, Button } from '@material-ui/core';
+
+import useStyles from './styles';
 
 const Info = () => {
-    return (
-        <div>
-            Info
-        </div>
-    )
-}
+  const classes = useStyles();
 
-export default Info
+  return (
+    <>
+      <Grid className={classes.grid}>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <h1>Info</h1>
+        <Button target="_blank" href="instagram.com/jp.lovett">
+          Instagram
+        </Button>
+      </Grid>
+    </>
+  );
+};
+
+export default Info;

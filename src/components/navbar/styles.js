@@ -3,6 +3,9 @@ import { makeStyles, fade } from '@material-ui/core/styles';
 const drawerWidth = 0;
 
 export default makeStyles((theme) => ({
+  // toolBar: {
+  //   justifySelf: 'center'
+  // },
   appBar: {
     display: 'flex',
     justifyContent: 'center',
@@ -10,18 +13,17 @@ export default makeStyles((theme) => ({
     boxShadow: 'none',
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
+      // marginLeft: drawerWidth,
     },
+    margin: 'auto',
   },
   title: {
     flexGrow: 1,
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
     textDecoration: 'none',
   },
   image: {
-    marginRight: '10px',
     padding: '5vh',
     width: '50%',
     [theme.breakpoints.down('sm')]: {
@@ -29,25 +31,25 @@ export default makeStyles((theme) => ({
     },
   },
   buttonGroup: {
-    justifySelf: 'center',
+    textDecoration: 'none',
   },
   grow: {
     flexGrow: 1,
   },
-  search: {
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: 'auto',
-    },
-  },
+  // search: {
+  //   position: 'relative',
+  //   borderRadius: theme.shape.borderRadius,
+  //   backgroundColor: fade(theme.palette.common.white, 0.15),
+  //   '&:hover': {
+  //     backgroundColor: fade(theme.palette.common.white, 0.25),
+  //   },
+  //   marginRight: theme.spacing(2),
+  //   marginLeft: 0,
+  //   width: '100%',
+  //   [theme.breakpoints.up('sm')]: {
+  //     width: 'auto',
+  //   },
+  // },
   inputRoot: {
     color: 'inherit',
   },

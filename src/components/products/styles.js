@@ -26,7 +26,7 @@ export default makeStyles((theme) => ({
     textDecoration: 'none'
   },
   media: {
-    minWidth: '60%',
+    minWidth: '70%',
     minHeight: '90%',
     padding: '36.25%', // 16:9
   },
