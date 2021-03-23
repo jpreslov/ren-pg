@@ -4,7 +4,7 @@ import { Product } from '../index';
 import { Link } from 'react-router-dom';
 
 // import Product from './product/Product';
-import useStyles from './styles';
+import useStyles from './productsStyles';
 
 const Products = ({ products, onAddToCart }) => {
   const classes = useStyles();
@@ -12,9 +12,9 @@ const Products = ({ products, onAddToCart }) => {
   return (
     <main className={classes.content}>
       <div className={classes.toolbar} />
-      <Grid className={classes.grid} container justify="space-around" spacing={4}>
-        {products.map((product) => (
-          <Product id={product.id} product={product} onAddToCart={onAddToCart()} />
+      <Grid className={classes.grid} container justify="center" spacing={0} xs={12} sm={6} md={10} lg={12}>
+        {products.map((product, key) => (
+          <Product key={key} id={product.id} product={product} onAddToCart={onAddToCart()} />
         ))}
       </Grid>
     </main>

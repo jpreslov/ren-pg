@@ -26,7 +26,7 @@ export default makeStyles((theme) => ({
   },
   media: {
     minWidth: '50%',
-    minHeight: '70%',
+    minHeight: '60%',
     padding: '36.25%', // 16:9
   },
   cardActions: {

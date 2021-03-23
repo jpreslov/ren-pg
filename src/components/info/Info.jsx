@@ -1,5 +1,6 @@
 import React from 'react';
-import { Grid, Button } from '@material-ui/core';
+import { Grid, ButtonGroup, Button, SvgIcon } from '@material-ui/core';
+import InstagramIcon from '@material-ui/icons/Instagram';
 
 import useStyles from './styles';
 
@@ -9,40 +10,11 @@ const Info = () => {
   return (
     <>
       <Grid className={classes.grid}>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <h1>Info</h1>
-        <Button target="_blank" href="instagram.com/jp.lovett">
-          Instagram
-        </Button>
+        <ButtonGroup>
+          <Button>
+            <SvgIcon component={InstagramIcon} target="_blank" href="instagram.com/jp.lovett" />
+          </Button>
+        </ButtonGroup>
       </Grid>
     </>
   );
