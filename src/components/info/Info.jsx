@@ -9,10 +9,10 @@ const Info = () => {
 
   return (
     <>
-      <Grid className={classes.grid}>
+      <Grid className={classes.grid} container justify="center" spacing={0} xs={12} sm={6} md={10} lg={12}>
         <ButtonGroup>
-          <Button>
-            <SvgIcon component={InstagramIcon} target="_blank" href="instagram.com/jp.lovett" />
+          <Button className={classes.button}>
+            <SvgIcon className={classes.svgIcon} component={InstagramIcon} target="_blank" href="instagram.com/jp.lovett" />
           </Button>
         </ButtonGroup>
       </Grid>

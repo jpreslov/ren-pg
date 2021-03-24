@@ -1,0 +1,89 @@
+body {
+  width: 100vw;
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: 'center';
+}
+
+.container {
+  flex-direction: column;
+  justify-content: center;
+}
+
+#bees-container {
+  position: relative;
+  top: 0;
+  height: 60vh;
+  z-index: 1;
+}
+
+#bear-container {
+  position: absolute;
+  top: 0;
+  height: 60vh;
+  z-index: 0;
+}
+
+#bear {
+  height: 40vh;
+  margin-top: 7vh;
+  animation-duration: 4s;
+  animation-name: swell;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes swell {
+  from {
+  }
+
+  to {
+    transform: rotateY(180deg);
+  }
+}
+
+#bees {
+  height: 40vh;
+  margin-top: 7vh;
+}
+
+#text {
+  position: absolute;
+  text-align: center;
+  margin-top: 60vh;
+}
+
+@media only screen and (max-width: 600px) {
+  #bees {
+    height: 50vw;
+  }
+
+  #bear {
+    height: 50vw;
+    margin-top: 8vh;
+    margin-left: 1vh;
+    animation-duration: 4s;
+    animation-name: swell;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes swell {
+    from {
+    }
+
+    to {
+      transform: rotateY(180deg);
+    }
+  }
+
+  #text {
+    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    margin-top: 40vh;
+  }
+}

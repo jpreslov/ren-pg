@@ -18,8 +18,11 @@ const ProductDetails = ({ onAddToCart }) => {
 
     // console.log(data[id])
     setProduct(product);
+  };
 
-    console.log(product.name);
+  let selectSize = (e) => {
+    // setSize(e.target.value);
+    console.log(e.target.value);
   };
 
   useEffect(() => {
@@ -40,15 +43,17 @@ const ProductDetails = ({ onAddToCart }) => {
                 <Typography gutterBottom variant="h5" component="h2">
                   ${product.price?.formatted}
                 </Typography>
-              <Typography dangerouslySetInnerHTML={{ __html: product.description }} variant="body2" color="textSecondary" component="p" />
+                <Typography dangerouslySetInnerHTML={{ __html: product.description }} variant="body2" color="textSecondary" component="p" />
               </div>
             </CardContent>
             <CardActions className={classes.cardActions}>
-              <Select>
-                {product.variants?.map((variant) => (
-                  <MenuItem onChange={(e) => setSize(e.target)}>{variant.name}</MenuItem>
-                ))}
-              </Select>
+              {product.variants?.map((variant) => (
+                <Select onChange={(e) => setSize(e.target.value)}>
+                  {variant.options.map((option) => (
+                    <MenuItem value={option.name}>{option.name}</MenuItem>
+                  ))}
+                </Select>
+              ))}
               <Button aria-label="Add to Cart" onClick={onAddToCart}>
                 Add to Cart
               </Button>
