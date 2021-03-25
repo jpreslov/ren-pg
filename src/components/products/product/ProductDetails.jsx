@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Grid, Card, CardMedia, CardContent, CardActions, Typography, Button, ButtonBase, Select, MenuItem } from '@material-ui/core';
+import { Grid, Card, CardMedia, CardContent, CardActions, Typography, Button, ButtonBase, Select, MenuItem, InputLabel } from '@material-ui/core';
 import { commerce } from '../../../lib/commerce';
 
 // import { AddShoppingCart } from '@material-ui/icons';
@@ -10,19 +10,15 @@ import useStyles from './productDetailsStyles';
 const ProductDetails = ({ onAddToCart }) => {
   const [product, setProduct] = useState({});
   const [size, setSize] = useState('');
+  const [variantId, setVariantId] = useState('');
   const classes = useStyles();
   const { id } = useParams();
 
+  const handleAddToCart = () => onAddToCart(product.id, 1, variantId);
+
   const fetchProduct = async () => {
     const product = await commerce.products.retrieve(id);
-
-    // console.log(data[id])
     setProduct(product);
-  };
-
-  let selectSize = (e) => {
-    // setSize(e.target.value);
-    console.log(e.target.value);
   };
 
   useEffect(() => {
@@ -48,13 +44,16 @@ const ProductDetails = ({ onAddToCart }) => {
             </CardContent>
             <CardActions className={classes.cardActions}>
               {product.variants?.map((variant) => (
-                <Select onChange={(e) => setSize(e.target.value)}>
-                  {variant.options.map((option) => (
-                    <MenuItem value={option.name}>{option.name}</MenuItem>
-                  ))}
-                </Select>
+                <div>
+                  <InputLabel>{variant.name}</InputLabel>
+                  <Select label={variant.name} onChange={(e) => setSize(e.target.value)}>
+                    {variant.options.map((option, index) => (
+                      <MenuItem key={index} onClick={(index)=>{setVariantId(option.id)}}value={option.name}>{option.name}</MenuItem>
+                    ))}
+                  </Select>
+                </div>
               ))}
-              <Button aria-label="Add to Cart" onClick={onAddToCart}>
+              <Button className={classes.button} aria-label="Add to Cart" onClick={(size) => onAddToCart(size)}>
                 Add to Cart
               </Button>
             </CardActions>

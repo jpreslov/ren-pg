@@ -39,4 +39,8 @@ export default makeStyles((theme) => ({
     flexDirection: 'column',
     textAlign: 'center',
   },
+  button: {
+    fontFamily: 'Verdana, sans-serif;',
+    textTransform: 'capitalize'
+  }
 }));
