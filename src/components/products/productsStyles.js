@@ -11,7 +11,7 @@ export default makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(4),
+    padding: theme.spacing(8),
     marginInline: '2vw'
     // justifyContent: 'center',
     // alignItems: 'center',

@@ -21,13 +21,13 @@ const Navbar = ({ totalItems }) => {
         {/* </Toolbar> */}
         <Toolbar className={classes.title}>
             <ButtonGroup className={classes.buttonGroup} variant="text" color="primary" aria-label="2nd-nav">
-              <Button component={Link} to="/" aria-label="View products" color="inherit">
+              <Button className={classes.button} component={Link} to="/" aria-label="View products" color="inherit">
                 Shop
               </Button>
-              <Button component={Link} to="/info" aria-label="Info" color="inherit">
+              <Button className={classes.button} component={Link} to="/info" aria-label="Info" color="inherit">
                 Info
               </Button>
-              <Button component={Link} to="/cart" aria-label="View cart" color="inherit">
+              <Button className={classes.button} component={Link} to="/cart" aria-label="View cart" color="inherit">
                 Cart
               </Button>
             </ButtonGroup>

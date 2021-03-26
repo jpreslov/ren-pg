@@ -10,14 +10,15 @@ import useStyles from './productDetailsStyles';
 const ProductDetails = ({ onAddToCart }) => {
   const [product, setProduct] = useState({});
   const [size, setSize] = useState('');
+  const [optionId, setOptionId] = useState('');
   const [variantId, setVariantId] = useState('');
   const classes = useStyles();
   const { id } = useParams();
 
-  const handleAddToCart = () => onAddToCart(product.id, 1, variantId);
+  const handleAddToCart = () => onAddToCart(product.id, 1, variantId, optionId);
 
   const fetchProduct = async () => {
-    const product = await commerce.products.retrieve(id);
+    const product = await commerce.products.retrieve(`${id}`);
     setProduct(product);
   };
 
@@ -43,17 +44,17 @@ const ProductDetails = ({ onAddToCart }) => {
               </div>
             </CardContent>
             <CardActions className={classes.cardActions}>
-              {product.variants?.map((variant) => (
-                <div>
+              {product.variants?.map((variant, index) => (
+                <div key={index}>
                   <InputLabel>{variant.name}</InputLabel>
-                  <Select label={variant.name} onChange={(e) => setSize(e.target.value)}>
+                  <Select label={variant.name} onChange={(e) => setSize(e.target.value)} onClose={() => setVariantId(variant.id)}>
                     {variant.options.map((option, index) => (
-                      <MenuItem key={index} onClick={(index)=>{setVariantId(option.id)}}value={option.name}>{option.name}</MenuItem>
+                      <MenuItem key={index} onClick={()=>{setOptionId(option.id)}}value={option.name}>{option.name}</MenuItem>
                     ))}
                   </Select>
                 </div>
               ))}
-              <Button className={classes.button} aria-label="Add to Cart" onClick={(size) => onAddToCart(size)}>
+              <Button className={classes.button} aria-label="Add to Cart" onClick={handleAddToCart}>
                 Add to Cart
               </Button>
             </CardActions>

@@ -8,24 +8,20 @@ import CartItem from './cartitem/CartItem';
 const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   const classes = useStyles();
 
-  const EmptyCart = () => (
-    <Typography variant="subtitle1">
-      No items in cart.
-      {/* <Link to="/" className={classes.link}> Start adding some! </Link> */}
-    </Typography>
-  );
+  const EmptyCart = () => <Typography variant="subtitle1">No items in cart.</Typography>;
 
   const renderCart = () => (
     <>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} justify="center">
+        {/* map through variants instead of entire items? */}
         {cart.line_items.map((item) => (
           <Grid item xs={12} sm={4} key={item.id}>
             <CartItem item={item} onUpdateCartQty={onUpdateCartQty} onRemoveFromCart={onRemoveFromCart} />
           </Grid>
         ))}
       </Grid>
-      <div className={classes.cartDetails}>
-        <Typography variant="h4">Subtotal: {cart.subtotal.formatted_with_symbol}</Typography>
+      <div className={classes.cartDetails} align="center">
+        <Typography variant="h6">Subtotal: {cart.subtotal.formatted_with_symbol}</Typography>
         <div>
           <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={onEmptyCart}>
             Empty cart
