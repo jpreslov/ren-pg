@@ -23,10 +23,10 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
       <div className={classes.cartDetails} align="center">
         <Typography variant="h6">Subtotal: {cart.subtotal.formatted_with_symbol}</Typography>
         <div>
-          <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={onEmptyCart}>
+          <Button className={classes.emptyButton} size="medium" type="button" variant="contained" color="secondary" onClick={onEmptyCart}>
             Empty cart
           </Button>
-          <Button component={Link} to="/checkout" className={classes.checkoutButton} size="large" type="button" variant="contained" color="primary">
+          <Button component={Link} to="/checkout" className={classes.checkoutButton} size="medium" type="button" variant="contained" color="primary">
             Checkout
           </Button>
         </div>
@@ -39,7 +39,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   return (
     <Container>
       <div className={classes.toolbar} />
-      <Typography className={classes.title} variant="h3" gutterBottom>
+      <Typography className={classes.title} variant="h6" gutterBottom>
         Your cart
       </Typography>
       {!cart.line_items.length ? EmptyCart() : renderCart()}
