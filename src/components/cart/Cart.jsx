@@ -8,7 +8,11 @@ import CartItem from './cartitem/CartItem';
 const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   const classes = useStyles();
 
-  const EmptyCart = () => <Typography variant="subtitle1">No items in cart.</Typography>;
+  const EmptyCart = () => (
+    <Typography variant="subtitle1" align="center">
+      No items in cart.
+    </Typography>
+  );
 
   const renderCart = () => (
     <>
