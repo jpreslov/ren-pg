@@ -28,11 +28,10 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
   useEffect(() => {
     const generateToken = async () => {
       try {
-        const token = await commerce.checkout.generateToken(cart.id, {
-          type: 'cart',
-        });
+        const token = await commerce.checkout.generateTokenFrom('cart', cart.id);
 
         setCheckoutToken(token);
+        console.log(token)
       } catch (error) {
         console.error(error);
       }
@@ -45,9 +44,9 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
   const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);
 
   const next = (data) => {
-    setShippingData(data);
-
-    nextStep();
+    // setShippingData(data);
+console.log(data)
+    // nextStep();
   };
 
   let Confirmation = () =>

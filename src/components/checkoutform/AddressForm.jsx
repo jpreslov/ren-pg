@@ -32,9 +32,9 @@ const AddressForm = ({ checkoutToken, next }) => {
   const fetchShippingCountries = async (checkoutTokenId) => {
     const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId);
 
-    // console.log(countries)
     setShippingCountries(countries);
-    setShippingCountry(Object.keys(countries)[0]);
+    setShippingCountry(countries[0]);
+
   };
 
   const fetchSubdivisions = async (countryCode) => {
@@ -44,15 +44,15 @@ const AddressForm = ({ checkoutToken, next }) => {
     setShippingSubdivision(Object.keys(subdivisions)[0]);
   };
 
-  // const fetchShippingOptions = async (checkoutTokenId, country, region = null) => {
-  //   const options = await commerce.checkout.getShippingOptions(checkoutTokenId, {
-  //     country,
-  //     region,
-  //   });
+  const fetchShippingOptions = async (checkoutTokenId, country, stateProvince = null) => {
+    // const options = await commerce.checkout.getShippingOptions(checkoutTokenId, { country, region: stateProvince });
+    const options = await commerce.checkout.getShippingOptions(checkoutTokenId, { country, region: stateProvince });
 
-  //   setShippingOptions(options);
-  //   console.log(options.id);
-  // };
+    setShippingOptions(options);
+    setShippingOption(options[0].id);
+
+    console.log(options);
+  };
 
   useEffect(() => {
     fetchShippingCountries(checkoutToken.id);
@@ -62,10 +62,13 @@ const AddressForm = ({ checkoutToken, next }) => {
     if (shippingCountry) fetchSubdivisions(shippingCountry);
   }, [shippingCountry]);
 
-  // useEffect(() => {
-  //   if (shippingSubdivision)
-  //     fetchShippingOptions(checkoutToken.id, shippingCountry, shippingSubdivision);
-  // }, [shippingSubdivision]);
+  useEffect(() => {
+    fetchShippingOptions(checkoutToken.id, shippingCountry);
+  }, []);
+
+  useEffect(() => {
+    if (shippingSubdivision) fetchShippingOptions(checkoutToken.id, shippingCountry, shippingSubdivision);
+  }, [shippingSubdivision]);
 
   return (
     <>
@@ -83,11 +86,7 @@ const AddressForm = ({ checkoutToken, next }) => {
             <FormInput name="zip" label="ZIP code" />
             <Grid item sx={12} sm={6}>
               <InputLabel>Shipping Country</InputLabel>
-              <Select
-                value={shippingCountry}
-                fullWidth
-                onChange={(e) => setShippingCountry(e.target.value)}
-              >
+              <Select value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}>
                 {countries.map((country) => (
                   <MenuItem key={country.id} value={country.id}>
                     {country.label}
@@ -97,11 +96,7 @@ const AddressForm = ({ checkoutToken, next }) => {
             </Grid>
             <Grid item sx={12} sm={6}>
               <InputLabel>Shipping Subdivision</InputLabel>
-              <Select
-                value={shippingSubdivision}
-                fullWidth
-                onChange={(e) => setShippingSubdivision(e.target.value)}
-              >
+              <Select value={shippingSubdivision} fullWidth onChange={(e) => setShippingSubdivision(e.target.value)}>
                 {subdivisions.map((subdivision) => (
                   <MenuItem key={subdivision.id} value={subdivision.id}>
                     {subdivision.label}
@@ -109,20 +104,16 @@ const AddressForm = ({ checkoutToken, next }) => {
                 ))}
               </Select>
             </Grid>
-            {/* <Grid item sx={12} sm={6}>
+            <Grid item sx={12} sm={6}>
               <InputLabel>Shipping Options</InputLabel>
-              <Select
-                value={shippingOption}
-                fullWidth
-                onChange={(e) => setShippingOption(e.target.value)}
-              >
+              <Select value={shippingOption} fullWidth onChange={(e) => setShippingOption(e.target.value)}>
                 {options.map((option) => (
                   <MenuItem key={option.id} value={option.id}>
                     {option.label}
                   </MenuItem>
                 ))}
               </Select>
-            </Grid> */}
+            </Grid>
           </Grid>
           <br />
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>

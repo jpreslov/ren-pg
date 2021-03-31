@@ -44,9 +44,9 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
           <CardContent className={classes.cardContent}>
             <div>
               <Typography variant="h6">{item.name}</Typography>
-              <Typography variant="p">{item.variants[0].variant_name}: {item.variants[0].option_name}</Typography>
+              <Typography variant="subtitle-1">{item.variants[0].variant_name}: {item.variants[0].option_name}</Typography>
             </div>
-            <Typography variant="p">{item.line_total.formatted_with_symbol}</Typography>
+            <Typography variant="subtitle-1">{item.line_total.formatted_with_symbol}</Typography>
           </CardContent>
           <CardActions className={classes.cardActions}>
             <div className={classes.buttons}>
