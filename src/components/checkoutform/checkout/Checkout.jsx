@@ -81,7 +81,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
   const Form = () =>
     activeStep === 0 ? (
-      <AddressForm checkoutToken={checkoutToken} next={next} />
+      <AddressForm checkoutToken={checkoutToken} next={next}  style={{marginTop: "40vh"}}/>
     ) : (
       <PaymentForm
         shippingData={shippingData}
@@ -95,7 +95,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     <>
       <div className={classes.toolbar} />
       <main className={classes.layout}>
-        <Paper className={classes.paper}>
+        <Paper className={classes.paper}  style={{marginTop: "26vh"}}>
           <Typography variant="h4" align="center">
             Checkout
           </Typography>
