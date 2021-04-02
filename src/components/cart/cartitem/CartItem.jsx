@@ -10,60 +10,35 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
 
   const handleRemoveFromCart = (lineItemId) => onRemoveFromCart(lineItemId);
 
-  const singleVariant = (
-    <Card className="cart-item">
-      <CardMedia image={item.media.source} alt={item.name} className={classes.media} />
-      <CardContent className={classes.cardContent}>
-        <div>
-          <Typography variant="h6">{item.name}</Typography>
-          <Typography variant="p">{item.variants[0].option_name}</Typography>
-        </div>
-        <Typography variant="p">{item.variants[0].price.formatted_with_symbol}</Typography>
-      </CardContent>
-      <CardActions className={classes.cardActions}>
-        <div className={classes.buttons}>
-          <Button type="button" size="small" onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}>
-            -
-          </Button>
-          <Typography>&nbsp;{item.quantity}&nbsp;</Typography>
-          <Button type="button" size="small" onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}>
-            +
-          </Button>
-        </div>
-        <Button variant="contained" type="button" color="secondary" onClick={() => handleRemoveFromCart(item.id)}>
-          Remove
-        </Button>
-      </CardActions>
-    </Card>
-  );
-
   return item.variants.map((variant) => {
-      return (
-        <Card className="cart-item">
-          <CardMedia image={item.media.source} alt={item.name} className={classes.media} />
-          <CardContent className={classes.cardContent}>
-            <div>
-              <Typography variant="h6">{item.name}</Typography>
-              <Typography variant="subtitle-1">{item.variants[0].variant_name}: {item.variants[0].option_name}</Typography>
-            </div>
-            <Typography variant="subtitle-1">{item.line_total.formatted_with_symbol}</Typography>
-          </CardContent>
-          <CardActions className={classes.cardActions}>
-            <div className={classes.buttons}>
-              <Button type="button" size="small" onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}>
-                -
-              </Button>
-              <Typography>&nbsp;{item.quantity}&nbsp;</Typography>
-              <Button type="button" size="small" onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}>
-                +
-              </Button>
-            </div>
-            <Button variant="contained" type="button" color="secondary" onClick={() => handleRemoveFromCart(item.id)}>
-              Remove
+    return (
+      <Card className={classes.cartItem}>
+        <CardMedia image={item.media.source} alt={item.name} className={classes.media} />
+        <CardContent className={classes.cardContent}>
+          <div>
+            <Typography className={classes.text}>{item.name}</Typography>
+            <Typography variant="subtitle1">
+              {item.variants[0].variant_name}: {item.variants[0].option_name}
+            </Typography>
+          </div>
+          <Typography variant="subtitle1">{item.line_total.formatted_with_symbol}</Typography>
+        </CardContent>
+        <CardActions className={classes.cardActions}>
+          <div className={classes.buttons}>
+            <Button type="button" size="small" onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}>
+              -
             </Button>
-          </CardActions>
-        </Card>
-      );
+            <Typography>&nbsp;{item.quantity}&nbsp;</Typography>
+            <Button type="button" size="small" onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}>
+              +
+            </Button>
+          </div>
+          <Button className={classes.button} variant="contained" type="button" color="secondary" onClick={() => handleRemoveFromCart(item.id)}>
+            Remove
+          </Button>
+        </CardActions>
+      </Card>
+    );
   });
 };
 

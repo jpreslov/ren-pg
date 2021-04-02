@@ -9,7 +9,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   const classes = useStyles();
 
   const EmptyCart = () => (
-    <Typography variant="subtitle1" align="center">
+    <Typography variant="subtitle1" align="center" style={{marginTop: '14vh'}}>
       No items in cart.
     </Typography>
   );
@@ -26,7 +26,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
       </Grid>
       <div className={classes.cartDetails} align="center">
         <Typography variant="h6">Subtotal: {cart.subtotal.formatted_with_symbol}</Typography>
-        <div>
+        <div className={classes.buttonDiv}>
           <Button className={classes.emptyButton} size="medium" type="button" variant="contained" color="secondary" onClick={onEmptyCart}>
             Empty cart
           </Button>

@@ -34,13 +34,13 @@ const ProductDetails = ({ onAddToCart }) => {
             <CardMedia className={classes.media} image={product.media?.source} title={product.name} />
             <CardContent>
               <div className={classes.cardContent}>
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography className={classes.text} gutterBottom >
                   {product.name}
                 </Typography>
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography className={classes.text} gutterBottom>
                   ${product.price?.formatted}
-                </Typography>
-                <Typography dangerouslySetInnerHTML={{ __html: product.description }} variant="body2" color="textSecondary" component="p" />
+                </Typography >
+                <Typography dangerouslySetInnerHTML={{ __html: product.description }} variant="body2" color="textSecondary" />
               </div>
             </CardContent>
             <CardActions className={classes.cardActions}>

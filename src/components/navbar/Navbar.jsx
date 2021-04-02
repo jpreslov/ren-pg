@@ -34,7 +34,7 @@ const Navbar = ({ totalItems }) => {
             ) : (
               <Button className={classes.button} component={Link} to="/cart" aria-label="View cart" color="inherit">
                 Cart
-                <Badge className={classes.badge} color="primary" badgeContent={totalItems}></Badge>
+                <Badge className={classes.badge} variant="standard" color="primary" badgeContent={totalItems}></Badge>
               </Button>
             )}
           </ButtonGroup>

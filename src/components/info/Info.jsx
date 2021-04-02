@@ -12,7 +12,9 @@ const Info = () => {
       <Grid className={classes.grid} container justify="center" spacing={0} xs={12} sm={6} md={10} lg={12}>
         <ButtonGroup>
           <Button className={classes.button}>
-            <SvgIcon className={classes.svgIcon} component={InstagramIcon} target="_blank" href="instagram.com/jp.lovett" />
+            <a  target="_blank" href="instagram.com/jp.lovett">
+            <SvgIcon className={classes.svgIcon} component={InstagramIcon} />
+            </a>
           </Button>
         </ButtonGroup>
       </Grid>

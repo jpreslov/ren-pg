@@ -9,43 +9,47 @@ const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 const PaymentForm = ({ checkoutToken, shippingData, nextStep, backStep, onCaptureCheckout }) => {
   const handleSubmit = async (e, elements, stripe) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if(!stripe || !elements) return
+    if (!stripe || !elements) return;
 
-    const cardElement = elements.getElement(CardElement)
+    const cardElement = elements.getElement(CardElement);
 
-    const { error, paymentMethod } = await stripe.createPaymentMethod({ type: 'card', card: cardElement})
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: 'card',
+      card: cardElement,
+    });
 
-   if (error) { 
-     console.log(error) 
+    if (error) {
+      console.log('[error]', error);
     } else {
       const orderData = {
         line_items: checkoutToken.live.line_items,
         customer: { firstname: shippingData.firstName, lastname: shippingData.lastName, email: shippingData.email },
-        shipping: { 
-          name: 'Primary', 
-          street: shippingData.address1, 
+        shipping: {
+          name: `${shippingData.firstName} ${shippingData.lastName}`,
+          street: shippingData.address1,
           town_city: shippingData.city,
           county_state: shippingData.shippingSubdivision,
           postal_zip_code: shippingData.zip,
-          country: shippingData.shippingCountry
+          country: shippingData.shippingCountry,
         },
 
         fulfillment: { shipping_method: shippingData.shippingOption },
         payment: {
           gateway: 'stripe',
           stripe: {
-            payment_method_id: paymentMethod.id
-          }
-        }
-      }
+            payment_method_id: paymentMethod.id,
+          },
+        },
+      };
 
-      onCaptureCheckout(checkoutToken.id, orderData)
+      console.log(orderData);
+      onCaptureCheckout(checkoutToken.id, orderData);
 
-      nextStep()
-  }
-  }
+      nextStep();
+    }
+  };
 
   return (
     <>
@@ -57,7 +61,7 @@ const PaymentForm = ({ checkoutToken, shippingData, nextStep, backStep, onCaptur
       <Elements stripe={stripePromise}>
         <ElementsConsumer>
           {({ elements, stripe }) => (
-            <form onSubmit={e => handleSubmit(e, elements, stripe)}>
+            <form onSubmit={(e) => handleSubmit(e, elements, stripe)}>
               <CardElement />
               <br /> <br />
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>

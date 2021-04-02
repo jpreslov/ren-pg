@@ -2,30 +2,31 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
+ 
   title: {
     marginTop: '20%',
     textAlign: 'center'
   },
+  buttonDiv: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   emptyButton: {
-    minWidth: '150px',
-    [theme.breakpoints.down('xs')]: {
-      marginBottom: '5px',
-    },
+    minWidth: '100px',
+    height: '4vh',
+    textTransform: 'capitalize',
+
     [theme.breakpoints.up('xs')]: {
       marginRight: '20px',
     },
   },
   checkoutButton: {
-    minWidth: '150px',
+    minWidth: '100px',
+    height: '4vh',
+    textTransform: 'capitalize',
   },
   link: {
     textDecoration: 'none',
-  },
-  cardDetails: {
-    display: 'flex',
-    marginTop: '10vh',
-    marginBottom: '20%',
-    width: '100%',
-    justifyContent: 'space-between',
   },
 }));

@@ -28,6 +28,7 @@ export default makeStyles((theme) => ({
     width: '50%',
     [theme.breakpoints.down('sm')]: {
       width: `80%`,
+      height: `10%`,
     },
   },
   buttonGroup: {
@@ -38,11 +39,18 @@ export default makeStyles((theme) => ({
   },
   button: {
     fontFamily: 'Verdana, sans-serif;',
-    textTransform: 'capitalize'
+    textTransform: 'capitalize',
+    [theme.breakpoints.down('sm')]: {
+      width: '20vw',
+      fontSize: 12
+    },
   },
   badge: {
     left: '1vw',
-    color: 'primary'
+    color: 'primary',
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: '2.5vw',
+    },
   },
   inputRoot: {
     color: 'inherit',

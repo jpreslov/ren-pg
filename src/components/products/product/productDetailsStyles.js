@@ -13,6 +13,11 @@ export default makeStyles((theme) => ({
     alignContent: 'center',
     alignItems: 'center',
     flexWrap: 'wrap',
+
+    [theme.breakpoints.down('sm')]: {
+      marginTop: '20vh',
+      justifyContent: 'center',
+    },
   },
   content: {
     flexGrow: 1,
@@ -29,6 +34,11 @@ export default makeStyles((theme) => ({
     minHeight: '60%',
     padding: '36.25%', // 16:9
   },
+  text: {
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 16,
+    },
+  },
   cardActions: {
     display: 'flex',
     flexDirection: 'column',
@@ -41,6 +51,6 @@ export default makeStyles((theme) => ({
   },
   button: {
     fontFamily: 'Verdana, sans-serif;',
-    textTransform: 'capitalize'
-  }
+    textTransform: 'capitalize',
+  },
 }));
