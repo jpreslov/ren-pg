@@ -20,7 +20,11 @@ const PaymentForm = ({ checkoutToken, shippingData, nextStep, backStep, onCaptur
       card: cardElement,
       billing_details: {
         name: `${shippingData.firstName} ${shippingData.lastName}`,
-        address: {...shippingData},
+        street: shippingData.address1,
+        town_city: shippingData.city,
+        county_state: shippingData.shippingSubdivision,
+        postal_zip_code: shippingData.zip,
+        country: shippingData.shippingCountry,
       },
     });
 
