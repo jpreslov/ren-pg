@@ -6,6 +6,7 @@ export default makeStyles((theme) => ({
   title: {
     marginTop: '20%',
     textAlign: 'center'
+    
   },
   buttonDiv: {
     display: 'flex',

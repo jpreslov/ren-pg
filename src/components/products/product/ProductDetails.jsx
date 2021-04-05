@@ -10,12 +10,12 @@ import useStyles from './productDetailsStyles';
 const ProductDetails = ({ onAddToCart }) => {
   const [product, setProduct] = useState({});
   const [size, setSize] = useState('');
-  const [optionId, setOptionId] = useState('');
-  const [variantId, setVariantId] = useState('');
+  const [variantGroupInfo, setVariantGroupInfo] = useState({id: '', name: ''});
+  const [optionInfo, setOptionInfo] = useState({id: '', name: ''});
   const classes = useStyles();
   const { id } = useParams();
 
-  const handleAddToCart = () => onAddToCart(product.id, 1, variantId, optionId);
+  const handleAddToCart = () => onAddToCart(product.id, 1, variantGroupInfo, optionInfo);
 
   const fetchProduct = async () => {
     const product = await commerce.products.retrieve(`${id}`);
@@ -44,12 +44,12 @@ const ProductDetails = ({ onAddToCart }) => {
               </div>
             </CardContent>
             <CardActions className={classes.cardActions}>
-              {product.variants?.map((variant, index) => (
+              {product.variant_groups?.map((variant_group, index) => (
                 <div key={index}>
-                  <InputLabel>{variant.name}</InputLabel>
-                  <Select label={variant.name} onChange={(e) => setSize(e.target.value)} onClose={() => setVariantId(variant.id)}>
-                    {variant.options.map((option, index) => (
-                      <MenuItem key={index} onClick={()=>{setOptionId(option.id)}}value={option.name}>{option.name}</MenuItem>
+                  <InputLabel>{variant_group.name}</InputLabel>
+                  <Select label={variant_group.name} onChange={(e) => setSize(e.target.value)} onClose={() => setVariantGroupInfo({id: variant_group.id, name: variant_group.name})}>
+                    {variant_group.options.map((option, index) => (
+                      <MenuItem key={index} onClick={()=>{setOptionInfo({id: option.id, name: option.name})}} value={option.name}>{option.name}</MenuItem>
                     ))}
                   </Select>
                 </div>

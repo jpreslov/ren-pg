@@ -9,7 +9,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   const classes = useStyles();
 
   const EmptyCart = () => (
-    <Typography variant="subtitle1" align="center" style={{marginTop: '14vh'}}>
+    <Typography variant="subtitle1" align="center" style={{ marginTop: '14vh' }}>
       No items in cart.
     </Typography>
   );
@@ -18,7 +18,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
     <>
       <Grid container spacing={3} justify="center">
         {/* map through variants instead of entire items? */}
-        {cart.line_items.map((item) => (
+        {cart.line_items.map((item, index) => (
           <Grid item xs={12} sm={4} key={item.id}>
             <CartItem item={item} onUpdateCartQty={onUpdateCartQty} onRemoveFromCart={onRemoveFromCart} />
           </Grid>

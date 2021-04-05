@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Typography, Button, Card, CardActions, CardContent, CardMedia } from '@material-ui/core';
+import { commerce } from '../../../lib/commerce';
 
 import useStyles from './styles';
 
 const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
-  const classes = useStyles();
 
+  const classes = useStyles();
+  
   const handleUpdateCartQty = (lineItemId, newQuantity) => onUpdateCartQty(lineItemId, newQuantity);
 
   const handleRemoveFromCart = (lineItemId) => onRemoveFromCart(lineItemId);
 
-  return item.variants.map((variant) => {
+  return item.selected_options.map((selected_option) => {
     return (
       <Card className={classes.cartItem}>
         <CardMedia image={item.media.source} alt={item.name} className={classes.media} />
@@ -18,7 +20,7 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
           <div>
             <Typography className={classes.text}>{item.name}</Typography>
             <Typography variant="subtitle1">
-              {item.variants[0].variant_name}: {item.variants[0].option_name}
+              {selected_option.group_name}: {selected_option.option_name}
             </Typography>
           </div>
           <Typography variant="subtitle1">{item.line_total.formatted_with_symbol}</Typography>

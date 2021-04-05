@@ -31,6 +31,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         const token = await commerce.checkout.generateTokenFrom('cart', cart.id);
 
         setCheckoutToken(token);
+        console.log(token)
       } catch (error) {
         console.error(error);
       }

@@ -22,12 +22,11 @@ const App = () => {
     setCart(await commerce.cart.retrieve());
   };
 
-  const handleAddToCart = async (productId, quantity, variant, option) => {
-    
-    const item = await commerce.cart.add(productId, quantity, {[variant]: option});
+  const handleAddToCart = async (productId, quantity, variantGroupInfo, optionInfo) => {
+    const item = await commerce.cart.add(productId, quantity, { [variantGroupInfo.id]: optionInfo.id });
 
     setCart(item.cart);
-    
+    console.log(item.cart);
   };
 
   const handleUpdateCartQty = async (lineItemId, quantity) => {
