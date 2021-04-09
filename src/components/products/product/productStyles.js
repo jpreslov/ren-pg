@@ -18,7 +18,7 @@ export default makeStyles((theme) => ({
     // justifyContent: 'center',
     flexWrap: 'wrap',
     flexDirection: 'row',
-    
+    marginInline: '2vw'
   },
   link: {
     textDecoration: 'none'
@@ -26,7 +26,9 @@ export default makeStyles((theme) => ({
   media: {
     width: '100%',
     height: '90%',
-    padding: '36.25%', // 16:9
+    paddingTop: '50%', // 16:9
+    paddingBottom: '40%', // 16:9
+    paddingInline: '6.25%', // 16:9
   },
   text: {
     [theme.breakpoints.down('sm')]: {
