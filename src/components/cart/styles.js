@@ -2,16 +2,21 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
- 
+  cartGrid: {},
   title: {
     marginTop: '20%',
-    textAlign: 'center'
-    
+    textAlign: 'center',
+    [theme.breakpoints.between('sm', 'lg')]: {
+      marginTop: '20%',
+    },
+    [theme.breakpoints.down('sm')]: {
+      marginTop: '35%',
+    },
   },
   buttonDiv: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   emptyButton: {
     minWidth: '100px',

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Typography, Button, Card, CardActions, CardContent, CardMedia } from '@material-ui/core';
-import { commerce } from '../../../lib/commerce';
 
 import useStyles from './styles';
 

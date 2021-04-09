@@ -26,7 +26,6 @@ const App = () => {
     const item = await commerce.cart.add(productId, quantity, { [variantGroupInfo.id]: optionInfo.id });
 
     setCart(item.cart);
-    console.log(item.cart);
   };
 
   const handleUpdateCartQty = async (lineItemId, quantity) => {
@@ -58,6 +57,7 @@ const App = () => {
       const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder);
 
       setOrder(incomingOrder);
+      console.log(incomingOrder);
 
       refreshCart();
     } catch (error) {

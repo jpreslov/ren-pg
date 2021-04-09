@@ -16,7 +16,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
 
   const renderCart = () => (
     <>
-      <Grid container spacing={3} justify="center">
+      <Grid className={classes.cartGrid} container spacing={3} justify="center">
         {/* map through variants instead of entire items? */}
         {cart.line_items.map((item, index) => (
           <Grid item xs={12} sm={4} key={item.id}>

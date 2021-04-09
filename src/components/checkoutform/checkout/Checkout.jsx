@@ -55,7 +55,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         <div>
           <Typography variant="h5">Thank you for your purchase!</Typography>
           <Divider className={classes.divider} />
-          <Typography variant="subtitle2">Order: {order.customer.reference}</Typography>
+          <Typography variant="subtitle2">Order: {order.customer_reference}</Typography>
         </div>
         <br />
         <Button component={Link} to="/" variant="outlined" type="button">
