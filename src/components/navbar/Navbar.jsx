@@ -13,7 +13,7 @@ const Navbar = ({ totalItems }) => {
     <>
       <AppBar position="fixed" className={classes.appBar} color="inherit">
         {/* <Toolbar className={classes.toolBar}> */}
-        <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
+        <Typography component={Link} to="/" className={classes.title}>
           <img src={logo} alt="Rendezvous P.G." className={classes.image} />
           {/* Rendezvous PG */}
         </Typography>

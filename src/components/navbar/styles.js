@@ -24,8 +24,9 @@ export default makeStyles((theme) => ({
     textDecoration: 'none',
   },
   image: {
-    padding: '5vh',
+    padding: '3vh',
     width: '50%',
+    opacity: '0.8',
     [theme.breakpoints.down('sm')]: {
       width: `80%`,
       height: `10%`,
@@ -38,11 +39,15 @@ export default makeStyles((theme) => ({
     flexGrow: 1,
   },
   button: {
-    fontFamily: 'Verdana, sans-serif;',
+    fontWeight: '600',
     textTransform: 'capitalize',
     [theme.breakpoints.down('sm')]: {
       width: '20vw',
-      fontSize: 12
+      fontSize: 14
+    },
+    [theme.breakpoints.between('md', 'xl')]: {
+      fontSize: 18
+      
     },
   },
   badge: {
@@ -50,6 +55,9 @@ export default makeStyles((theme) => ({
     color: 'primary',
     [theme.breakpoints.down('sm')]: {
       marginLeft: '2.5vw',
+    },
+    [theme.breakpoints.between('md', 'xl')]: {
+      marginLeft: '0.2vw',
     },
   },
   inputRoot: {

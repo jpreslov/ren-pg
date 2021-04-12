@@ -9,7 +9,7 @@ export default makeStyles((theme) => ({
   },
   button: {
     height: '20vh',
-    width: '40vh',
+    width: '25vh',
     border: 'none'
   },
   svgIcon: {

@@ -7,18 +7,22 @@ export default makeStyles((theme) => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing(4),
-    justifyContent: 'center'
+    justifyContent: 'center',
+ 
   },
   root: {
+    display: 'flex',
+    transition: '0.2s',
     maxWidth: '100%',
     backgroundColor: 'inherit',
     boxShadow: 'none',
     minHeight: '20vh',
     minWidth: '30vw',
-    // justifyContent: 'center',
+    justifyContent: 'center',
     flexWrap: 'wrap',
-    flexDirection: 'row',
-    marginInline: '2vw'
+    marginInline: '2vw',
+    
+ 
   },
   link: {
     textDecoration: 'none'

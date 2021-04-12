@@ -2,34 +2,47 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   cartItem: {
+    display: 'flex',
+    width: '50vw',
+
     [theme.breakpoints.down('sm')]: {
       marginTop: '2vh',
       marginRight: '3vh',
-      marginBottom: '3vh',
+      // marginBottom: '0.5vh',
       marginLeft: '3vh',
       paddingTop: '1vh',
       paddingBottom: '1vh',
     },
+    [theme.breakpoints.between('sm', 'lg')]: {
+      width: '40vw',
+    },
   },
   media: {
-    height: '34vh',
+    height: '20vh',
+    width: '20vh',
+    marginTop: '1vw',
+    marginLeft: '1vw',
   },
   text: {
     fontSize: 16,
   },
   cardContent: {
-    display: 'flex',
-    justifyContent: 'space-between',
+    flex: 'inline-flex',
+    float: 'left',
   },
-  cartActions: {
-    justifyContent: 'space-between',
-  },
-  buttons: {
-    display: 'flex',
-    alignItems: 'center',
-  },
+
   button: {
     textTransform: 'capitalize',
     width: '4vw',
+  },
+  removeButton: {
+    marginLeft: '1vw',
+    marginTop: '1vw',
+    // size: '5vh',
+    position: 'absolute',
+  },
+  qtyInput: {
+    width: '2vw',
+    cursor: 'pointer'
   },
 }));
