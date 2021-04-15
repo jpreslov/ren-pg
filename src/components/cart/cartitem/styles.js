@@ -22,6 +22,8 @@ export default makeStyles((theme) => ({
     width: '20vh',
     marginTop: '1vw',
     marginLeft: '1vw',
+    [theme.breakpoints.down('md')]:
+    {width: '86vw'}
   },
   text: {
     fontSize: 16,
