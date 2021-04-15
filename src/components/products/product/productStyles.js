@@ -13,7 +13,7 @@ export default makeStyles((theme) => ({
   root: {
     display: 'flex',
     transition: '0.2s',
-    maxWidth: '100%',
+    // maxWidth: '100%',
     backgroundColor: 'inherit',
     boxShadow: 'none',
     minHeight: '20vh',
@@ -22,6 +22,10 @@ export default makeStyles((theme) => ({
     flexWrap: 'wrap',
     marginInline: '2vw',
     
+    [theme.breakpoints.between('md, xl')]: {
+      height: 'auto',
+      width: '50vw',
+    }
  
   },
   link: {

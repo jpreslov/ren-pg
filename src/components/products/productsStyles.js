@@ -13,14 +13,8 @@ export default makeStyles((theme) => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing(8),
-    [theme.breakpoints.down('sm')]: {
-      marginTop: '1vh',
-    },
-    [theme.breakpoints.between('sm', 'lg')]: {
-      marginTop: '6vh',
-      justifyContent: 'center',
-    },
-    [theme.breakpoints.between('lg', 'xl')]: {
+
+    [theme.breakpoints.between('sm', 'xl')]: {
       marginTop: '6vh',
       justifyContent: 'center',
     },

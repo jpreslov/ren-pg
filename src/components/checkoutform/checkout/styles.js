@@ -4,6 +4,9 @@ export default makeStyles((theme) => ({
   appBar: {
     position: "relative",
   },
+  confirmation: {
+    justifyContent: "center"
+  },
   toolbar: theme.mixins.toolbar,
   layout: {
     marginTop: "5%",
