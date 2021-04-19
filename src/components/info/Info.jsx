@@ -10,7 +10,7 @@ const Info = () => {
 
   return (
     <>
-      <Grid className={classes.grid} container justify="center" spacing={0} xs={12} sm={6} md={10} lg={12}>
+      <Grid className={classes.grid} container justify="center" spacing={0} xs={12} sm={12} md={10} lg={12}>
         <ButtonGroup>
           <Button className={classes.button} target="_blank" href="http://www.instagram.com/jp.lovett">
             <SvgIcon className={classes.svgIcon} component={InstagramIcon} />

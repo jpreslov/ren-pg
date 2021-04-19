@@ -11,17 +11,13 @@ export default makeStyles((theme) => ({
     justifyContent: "center",
     alignContent: "center",
     flexWrap: "wrap",
-
-    [theme.breakpoints.down("sm")]: {
-      marginTop: "20vh",
-      justifyContent: "center",
-    },
+  },
+  content: {
+    [theme.breakpoints.between("sm", "lg")]: { marginTop: "6vh" },
     [theme.breakpoints.up("xl")]: {
       marginTop: "25vh",
       justifyContent: "center",
     },
-  },
-  content: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

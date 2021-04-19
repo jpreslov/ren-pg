@@ -18,23 +18,18 @@ export default makeStyles((theme) => ({
     minWidth: "30vw",
     justifyContent: "center",
     flexWrap: "wrap",
-    marginInline: "2vw",
+    marginInline: "4vw",
     [theme.breakpoints.between("xs", "md")]: {
       height: "auto",
       width: "70vw",
-      marginInline: "0",
       paddingInline: "0",
     },
     [theme.breakpoints.between("md", "xl")]: {
       height: "auto",
-      minWidth: "40vw",
-      maxWidth: "50vw",
-      marginInline: "5vw",
+      maxWidth: "30vw",
+      marginLeft: "2vw",
+      marginRight: "1vw",
     },
-    // [theme.breakpoints.between("md, xl")]: {
-    //   height: "auto",
-    //   width: "50%",
-    // },
   },
   link: {
     textDecoration: "none",

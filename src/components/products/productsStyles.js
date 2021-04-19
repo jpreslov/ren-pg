@@ -7,14 +7,12 @@ export default makeStyles((theme) => ({
   },
   grid: {
     marginTop: "18vh",
-
-    // [theme.breakpoints.between("sm", "lg")]: { marginTop: "10vh" },
-  },
+    },
   content: {
     display: "inherit",
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(8),
+    padding: theme.spacing(12),
 
     [theme.breakpoints.between("sm", "xl")]: {
       marginTop: "6vh",
