@@ -11,10 +11,10 @@ export default makeStyles((theme) => ({
     justifyContent: 'center',
     alignContent: 'center',
     boxShadow: 'none',
-    [theme.breakpoints.up('sm')]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      // marginLeft: drawerWidth,
-    },
+    // [theme.breakpoints.up('sm')]: {
+    //   width: `calc(100% - ${drawerWidth}px)`,
+    //   // marginLeft: drawerWidth,
+    // },
     margin: 'auto',
   },
   title: {
@@ -31,6 +31,10 @@ export default makeStyles((theme) => ({
       width: `80%`,
       height: `10%`,
     },
+    [theme.breakpoints.between('sm', 'xl')]: {
+      width: `50%`,
+      height: `10%`,
+    }
   },
   buttonGroup: {
     textDecoration: 'none',

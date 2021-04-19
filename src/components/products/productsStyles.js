@@ -8,7 +8,7 @@ export default makeStyles((theme) => ({
   grid: {
     marginTop: "18vh",
 
-    [theme.breakpoints.between("sm", "lg")]: { marginTop: "25vh" },
+    // [theme.breakpoints.between("sm", "lg")]: { marginTop: "10vh" },
   },
   content: {
     display: "inherit",

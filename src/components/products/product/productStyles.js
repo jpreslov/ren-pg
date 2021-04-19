@@ -15,13 +15,21 @@ export default makeStyles((theme) => ({
     backgroundColor: "inherit",
     boxShadow: "none",
     minHeight: "20vh",
-    minWidth: "60vw",
+    minWidth: "30vw",
     justifyContent: "center",
     flexWrap: "wrap",
     marginInline: "2vw",
     [theme.breakpoints.between("xs", "md")]: {
       height: "auto",
-      width: "100%",
+      width: "70vw",
+      marginInline: "0",
+      paddingInline: "0",
+    },
+    [theme.breakpoints.between("md", "xl")]: {
+      height: "auto",
+      minWidth: "40vw",
+      maxWidth: "50vw",
+      marginInline: "5vw",
     },
     // [theme.breakpoints.between("md, xl")]: {
     //   height: "auto",
@@ -37,6 +45,11 @@ export default makeStyles((theme) => ({
     paddingTop: "50%", // 16:9
     paddingBottom: "40%", // 16:9
     paddingInline: "6.25%", // 16:9
+    [theme.breakpoints.between("md", "xl")]: {
+      maxWidth: "50vw",
+      maxHeight: "40vh",
+      paddingInline: "2vw"
+    },
   },
   text: {
     [theme.breakpoints.down("sm")]: {
