@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 export default makeStyles((theme) => ({
   root: {
     display: "flex",
-    marginTop: "32vh",
+    // marginTop: "30vh",
     backgroundColor: "inherit",
     boxShadow: "none",
     maxHeight: "90%",
@@ -11,34 +11,30 @@ export default makeStyles((theme) => ({
     justifyContent: "center",
     alignContent: "center",
     flexWrap: "wrap",
+    padding: "0",
   },
+
   content: {
-    [theme.breakpoints.between("sm", "lg")]: { marginTop: "6vh" },
-    [theme.breakpoints.up("xl")]: {
-      marginTop: "25vh",
-      justifyContent: "center",
-    },
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    // alignContent: "center",
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
     fontWeight: "500",
     marginInline: "auto",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "26vh",
+    },
+    [theme.breakpoints.between("md", "lg")]: {
+      marginTop: "28vh",
+    },
+    [theme.breakpoints.up("lg")]: {
+      marginTop: "30vh",
+      justifyContent: "center",
+    },
   },
 
-  grid: {
-    [theme.breakpoints.only("sm")]: {
-      marginTop: "30vh",
-    },
-    [theme.breakpoints.between("md", "xl")]: {
-      marginTop: "10vh",
-    },
-    [theme.breakpoints.up("xl")]: {
-      marginTop: "40vh",
-    },
-  },
+  grid: {},
 
   media: {
     height: "10px",
@@ -61,6 +57,8 @@ export default makeStyles((theme) => ({
     flexDirection: "column",
     textAlign: "start",
     float: "left",
+    width: "100%",
+    marginTop: "1vh",
   },
   cardContent: {
     flexDirection: "column",
@@ -70,11 +68,13 @@ export default makeStyles((theme) => ({
     textTransform: "capitalize",
     color: "white",
     backgroundColor: "#009c7b",
+    marginTop: "2vh",
   },
   productInfo: {
     flexDirection: "column",
     // width: '100vw',
     fontWeight: "600",
+    marginTop: "0",
   },
   inputDiv: {
     flexDirection: "column",
