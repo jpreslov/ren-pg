@@ -1,0 +1,52 @@
+$xs: 0px;
+$sm: 600px;
+$md: 960px;
+$lg: 1280px;
+$xl: 1920px;
+
+.cart-item {
+  display: flex;
+  width: 50vw;
+  @media (max-width: $sm) {
+    margin-top: 2vh;
+    margin-right: 3vh;
+    // marginBottom: '0.5vh',
+    margin-left: 3vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+  }
+  @media (min-width: $sm) and (max-width: $lg) {
+    width: 40vw;
+  }
+}
+media {
+  height: "20vh";
+  width: "20vh";
+  margin-top: "1vw";
+  margin-left: "1vw";
+  @media (max-width: $md) {
+    width: 86vw;
+  }
+}
+text {
+  font-size: 16;
+}
+card-content {
+  flex: "inline-flex";
+  float: "left";
+}
+
+button {
+  text-transform: capitalize;
+  width: 4vw;
+}
+remove-button {
+  margin-left: 1vw;
+  margin-top: 1vw;
+  // size: '5vh',
+  position: absolute;
+}
+qty-input {
+  width: 2vw;
+  cursor: pointer;
+}
