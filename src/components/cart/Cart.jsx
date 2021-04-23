@@ -1,9 +1,9 @@
-import React from 'react';
-import { Container, Typography, Button, Grid } from '@material-ui/core';
-import { Link, useHistory } from 'react-router-dom';
+import React from "react";
+import { Container, Typography, Button, Grid } from "@material-ui/core";
+import { Link, useHistory } from "react-router-dom";
 
-import useStyles from './styles';
-import CartItem from './cartitem/CartItem';
+import useStyles from "./styles";
+import CartItem from "./cartitem/CartItem";
 
 const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   let history = useHistory();
@@ -12,10 +12,10 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   const EmptyCart = () => (
     <>
       <div className={classes.emptyCartDiv}>
-        <Typography variant="h6" align="center" style={{ marginTop: '5vh' }}>
+        <Typography variant="h6" align="center" style={{ marginTop: "5vh" }}>
           Your cart is empty
         </Typography>
-        <Button className={classes.button} onClick={() => history.push('/')} type="button" variant="contained">
+        <Button className={classes.button} onClick={() => history.push("/")} type="button" variant="contained">
           Start Shopping
         </Button>
       </div>
@@ -44,7 +44,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
     </>
   );
 
-  if (!cart.line_items) return 'Loading...';
+  if (!cart.line_items) return "Loading...";
 
   return (
     <Container>
