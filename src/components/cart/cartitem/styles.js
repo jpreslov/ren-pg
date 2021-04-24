@@ -27,11 +27,12 @@ export default makeStyles((theme) => ({
   },
   media: {
     float: 'left',
-    height: '20vh',
-    width: '20vh',
-    marginTop: '1vw',
-    marginLeft: '1vw',
-    [theme.breakpoints.down('md')]: { width: '86%', alignSelf: 'center' },
+    height: '18vh',
+    width: '11vw',
+    margin: '1vw',
+    [theme.breakpoints.up('md')]: { marginRight: '3vw' },
+    // [theme.breakpoints.down('md')]: { width: '86%' },
+    // [theme.breakpoints.between('md', 'lg')]: { height: '86%', width: "auto" },
   },
   text: {
     fontSize: 16,

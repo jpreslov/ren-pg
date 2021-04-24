@@ -42,33 +42,33 @@ const ProductDetails = ({ onAddToCart }) => {
                 </Typography>
                 <Typography dangerouslySetInnerHTML={{ __html: product.description }} color="textSecondary" />
               </div>
+              <CardActions className={classes.cardActions}>
+                <div className={classes.productInfo}>
+                  {product.variant_groups?.map((variant_group, index) => (
+                    <div className={classes.inputDiv} key={index}>
+                      <InputLabel>{variant_group.name}</InputLabel>
+                      <Select label={variant_group.name} onChange={(e) => setSize(e.target.value)} onClose={() => setVariantGroupInfo({ id: variant_group.id, name: variant_group.name })}>
+                        {variant_group.options.map((option, index) => (
+                          <MenuItem
+                            key={index}
+                            onClick={() => {
+                              setOptionInfo({ id: option.id, name: option.name });
+                            }}
+                            value={option.name}
+                            defaultValue="Select option"
+                          >
+                            {option.name}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </div>
+                  ))}
+                </div>
+                <Button className={classes.button} aria-label="Add to Cart" onClick={handleAddToCart}>
+                  Add to Cart
+                </Button>
+              </CardActions>
             </CardContent>
-            <CardActions className={classes.cardActions}>
-              <div className={classes.productInfo}>
-                {product.variant_groups?.map((variant_group, index) => (
-                  <div className={classes.inputDiv} key={index}>
-                    <InputLabel>{variant_group.name}</InputLabel>
-                    <Select label={variant_group.name} onChange={(e) => setSize(e.target.value)} onClose={() => setVariantGroupInfo({ id: variant_group.id, name: variant_group.name })}>
-                      {variant_group.options.map((option, index) => (
-                        <MenuItem
-                          key={index}
-                          onClick={() => {
-                            setOptionInfo({ id: option.id, name: option.name });
-                          }}
-                          value={option.name}
-                          defaultValue="Select option"
-                        >
-                          {option.name}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  </div>
-                ))}
-              </div>
-              <Button className={classes.button} aria-label="Add to Cart" onClick={handleAddToCart}>
-                Add to Cart
-              </Button>
-            </CardActions>
           </Card>
         </Grid>
       </main>
