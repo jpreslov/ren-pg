@@ -26,13 +26,6 @@ const Info = () => {
   const safariInfo = () => (
     <>
       <div className="container">
-        <Typography className="info" variant="h5">
-          Rendezvous Printed Goods is an art project by Jake Lovett.
-        </Typography>
-        <Typography className="infoTwo" variant="subtext1">
-          Drawing inspiration from many facets of media, I make every graphic and screen myself. Every shirt is made to order, and hand-printed in my
-          apartment.
-        </Typography>
         <div className="button-group">
           <Button className="Button" target="_blank" href="http://www.instagram.com/jp.lovett">
             <SvgIcon className="svgIcon" component={InstagramIcon} />
