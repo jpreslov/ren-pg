@@ -27,9 +27,9 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
       <Grid className={classes.cartGrid1} container spacing={3} justify="center">
         {/* map through variants instead of entire items? */}
         {cart.line_items.map((item) => (
-          <Grid item xs={12} sm={6} key={item.id}>
+          // <Grid item xs={10} sm={12} md={10} lg={10} xl={12} key={item.id} justify="center">
             <CartItem item={item} onUpdateCartQty={onUpdateCartQty} onRemoveFromCart={onRemoveFromCart} />
-          </Grid>
+          // </Grid>
         ))}
       </Grid>
       <div className={classes.cartDetails} justify="space-between">

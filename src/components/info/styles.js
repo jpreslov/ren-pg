@@ -7,26 +7,19 @@ export default makeStyles((theme) => ({
     justifyContent: "center",
     alignContent: "center",
     textAlign: "center",
+    flexDirection: "column",
   },
-  infoDiv: {
-    width: "100vw",
-    height: "auto",
-    textAlign: "start"
-  },
-  info: {
-    marginInline: "10%",
-
-  },
-  infoTwo: {
-    marginInline: "33%",
-    paddingTop: "10vh",
+  buttonGroup: {
+    width: "50vw",
+    justifyContent: "space-around",
+    alignSelf: "center",
   },
   button: {
-    height: "8vh",
-    width: "9vh",
+    height: "10vh",
+    width: "12vh",
     border: "none",
   },
   svgIcon: {
-    fontSize: "6vh",
+    fontSize: "9vh",
   },
 }));

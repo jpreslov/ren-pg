@@ -34,7 +34,6 @@ export default makeStyles((theme) => ({
     },
   },
 
-  grid: {},
 
   media: {
     height: "10px",
