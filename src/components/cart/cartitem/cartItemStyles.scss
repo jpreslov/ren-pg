@@ -11,6 +11,7 @@ $xl: 1920px;
   border-radius: 4px;
   filter: drop-shadow(2px 2px 2px rgba(80, 80, 80, 0.644));
   @media (max-width: $sm) {
+    width: 90%;
     margin-top: 2vh;
     margin-right: 3vh;
     // marginBottom: '0.5vh',
@@ -29,6 +30,7 @@ $xl: 1920px;
   margin-left: 1vw;
   @media (max-width: $md) {
     width: 86vw;
+    height: auto;
   }
 }
 .text {

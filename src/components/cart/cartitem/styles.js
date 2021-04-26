@@ -4,14 +4,17 @@ export default makeStyles((theme) => ({
   container: {
     display: 'inherit',
     flexDirection: 'column',
-    width: '50vw',
-    marginLeft: '0',
+    width: '100%',
     paddingLeft: '0',
     marginTop: '3vh',
+    justifyContent: 'center',
+    alignItems: 'center',
+    [theme.breakpoints.down('md')]: { width: '95%' },
   },
   cartItem: {
     flexDirection: 'row',
     justifyContent: 'center',
+    width: '90%',
     [theme.breakpoints.down('sm')]: {
       marginTop: '2vh',
       marginRight: '3vh',
@@ -31,15 +34,16 @@ export default makeStyles((theme) => ({
     width: '11vw',
     margin: '1vw',
     [theme.breakpoints.up('md')]: { marginRight: '3vw' },
-    // [theme.breakpoints.down('md')]: { width: '86%' },
+    [theme.breakpoints.down('md')]: { width: '40vw', height: '20vh' },
     // [theme.breakpoints.between('md', 'lg')]: { height: '86%', width: "auto" },
   },
   text: {
     fontSize: 16,
+    [theme.breakpoints.down('md')]: { fontSize: 14 },
     // marginRight: "2vw"
   },
   cardContent: {
-    textAlign: 'start',
+    textAlign: 'end',
   },
 
   button: {

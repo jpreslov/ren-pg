@@ -46,12 +46,12 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
                 {selected_option.group_name}: {selected_option.option_name}
               </h6>
             ) : (
-              <Typography variant="subtitle2">
+              <Typography className={classes.text} variant="subtitle2">
                 {selected_option.group_name}: {selected_option.option_name}
               </Typography>
             );
           })}
-          <Typography variant="subtitle1">{item.line_total.formatted_with_symbol}</Typography>
+          <Typography className={classes.text} variant="subtitle1">{item.line_total.formatted_with_symbol}</Typography>
         </CardContent>
         <CardActions className={classes.cardActions}>
           <Input className={classes.qtyInput} defaultValue={item.quantity} onChange={(e) => handleUpdateCartQty(item.id, e.target.value)} />
