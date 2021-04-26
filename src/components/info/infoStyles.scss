@@ -5,12 +5,11 @@ $lg: 1280px;
 $xl: 1920px;
 
 .container {
-  display: inline;
+  display: flex;
   margin-top: 35vh;
-  margin-left: 10vw;
-  margin-right: 10vw;
   width: 100%;
   justify-content: center;
+  text-align: center;
 }
 
 .infoTwo {
@@ -21,17 +20,9 @@ $xl: 1920px;
   height: 10vh;
   width: 12vh;
   border: none;
+  cursor: pointer;
 }
 
 .button-group {
   width: 50vw;
-  justify-content: space-around;
-  align-self: center;
 }
-
-.svgIcon {
-  font-size: 20vh;
-}
-//   svgIcon: {
-//     fontSize: "6vh",
-//   },

@@ -27,17 +27,17 @@ const Info = () => {
     <>
       <div className="container">
         <div className="button-group">
-          <Button className="Button" target="_blank" href="http://www.instagram.com/jp.lovett">
-            <SvgIcon className="svgIcon" component={InstagramIcon} />
+          <Button className="button" target="_blank" href="http://www.instagram.com/jp.lovett">
+            <SvgIcon className={classes.svgIcon} component={InstagramIcon} />
           </Button>
-          <Button className="Button" href="mailto:jpreslov@gmail.com">
-            <SvgIcon className="svgIcon" component={MailOutlineIcon} />
+          <Button className="button" href="mailto:jpreslov@gmail.com">
+            <SvgIcon className={classes.svgIcon} component={MailOutlineIcon} />
           </Button>
         </div>
       </div>
     </>
   );
-  return isSafari ? safariInfo() : regularInfo();
+  return (isSafari ? safariInfo() : regularInfo())
 };
 
 export default Info;
