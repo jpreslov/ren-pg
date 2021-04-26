@@ -27,21 +27,12 @@ export default makeStyles((theme) => ({
     },
   },
   media: {
-<<<<<<< HEAD
-    float: 'left',
-    height: '18vh',
-    width: '11vw',
-    margin: '1vw',
-    [theme.breakpoints.up('md')]: { marginRight: '3vw' },
-    [theme.breakpoints.down('md')]: { width: '40vw', height: '20vh' },
-=======
     float: "left",
     height: "18vh",
     width: "11vw",
     margin: "1vw",
     [theme.breakpoints.up("md")]: { marginRight: "3vw" },
     [theme.breakpoints.down("md")]: { width: "86%", height: "30vh", justifySelf: "center" },
->>>>>>> b72dd96feb0451d01c86924ffc37298cf6991e8a
     // [theme.breakpoints.between('md', 'lg')]: { height: '86%', width: "auto" },
   },
   text: {
@@ -50,11 +41,7 @@ export default makeStyles((theme) => ({
     // marginRight: "2vw"
   },
   cardContent: {
-<<<<<<< HEAD
     textAlign: 'end',
-=======
-    textAlign: "start",
->>>>>>> b72dd96feb0451d01c86924ffc37298cf6991e8a
   },
 
   button: {
