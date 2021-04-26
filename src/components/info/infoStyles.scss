@@ -1,3 +1,9 @@
+$xs: 0px;
+$sm: 600px;
+$md: 960px;
+$lg: 1280px;
+$xl: 1920px;
+
 .container {
   display: inline;
   margin-top: 35vh;
@@ -12,13 +18,15 @@
 }
 
 .button {
-  height: auto;
-  width: auto;
+  height: 10vh;
+  width: 12vh;
   border: none;
 }
 
 .button-group {
-  justify-content: center;
+  width: 50vw;
+  justify-content: space-around;
+  align-self: center;
 }
 
 .svgIcon {
