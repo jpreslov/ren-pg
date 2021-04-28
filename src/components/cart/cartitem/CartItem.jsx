@@ -19,15 +19,9 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
         <CardContent className={classes.cardContent}>
           <Typography className={classes.text}>{item.name}</Typography>
           {item.selected_options.map((selected_option) => {
-            // isSafari ? (
-            //   <h6>
-            //     {selected_option.group_name}: {selected_option.option_name}
-            //   </h6>
-            // ) : (
-              <Typography className={classes.text} variant="subtitle2">
-                {selected_option.group_name}: {selected_option.option_name}
-              </Typography>
-            // );
+            <Typography className={classes.text} variant="subtitle2">
+              {selected_option.group_name}: {selected_option.option_name}
+            </Typography>;
           })}
           <Typography className={classes.text} variant="subtitle1">
             {item.line_total.formatted_with_symbol}
