@@ -33,10 +33,8 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
         ))}
       </Grid>
       <div className={classes.cartDetails} justify="space-between">
-        <Typography variant="h6">Subtotal:</Typography>
-        <Typography variant="h6">{cart.subtotal.formatted_with_symbol}</Typography>
-      </div>
-      <div className={classes.buttonDiv}>
+        <Typography variant="h6">Subtotal: {cart.subtotal.formatted_with_symbol}</Typography>
+        {/* <Typography variant="h6">{cart.subtotal.formatted_with_symbol}</Typography> */}
         <Button component={Link} to="/checkout" className={classes.checkoutButton} size="medium" type="button" variant="contained" color="primary">
           Checkout
         </Button>

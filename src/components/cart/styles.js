@@ -12,29 +12,14 @@ export default makeStyles((theme) => ({
   title: {
     marginTop: "20vh",
     textAlign: "center",
-    [theme.breakpoints.between("xs", "lg")]: {
-      marginTop: "10vh",
-    },
-    [theme.breakpoints.down("xs")]: {
-      marginTop: "15vh",
-    },
-    [theme.breakpoints.up("lg")]: {
-      marginTop: "22vh",
-      marginBottom: "2vh",
-    },
+    
   },
   cartDetails: {
-    width: "50vw",
+    width: "70vw",
     flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
+    justifyContent: "end",
+    textAlign: "end",
     marginTop: "3vh",
-  },
-  buttonDiv: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
   },
   emptyButton: {
     minWidth: "100px",

@@ -5,51 +5,57 @@ export default makeStyles((theme) =>
   isSafari
     ? {
         container: {
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "82vw",
           marginTop: "3vh",
-          [theme.breakpoints.down("sm")]: {
+          [theme.breakpoints.down("md")]: {
             width: "90%",
           },
         },
         cartItem: {
+          flexDirection: "row",
           [theme.breakpoints.down("sm")]: {
-            width: "90%",
-            marginTop: "2vh",
+            flexDirection: "column",
+            marginTop: "1.5vh",
             paddingTop: "1vh",
             paddingBottom: "1vh",
-            flexDirection: "column",
           },
-          [theme.breakpoints.between("sm", "lg")]: {
-            width: "40vw",
+          [theme.breakpoints.between("xs", "md")]: {
+            width: "60vw",
           },
         },
         picAndButton: {
-          display: "inherit",
+          width: "32%",
           float: "left",
-          width: "auto",
+          alignItems: "center",
+          [theme.breakpoints.down("sm")]: { width: "100%", justifyContent: "center" },
         },
         removeButton: {
-          float: "left",
-          margin: "0 1vw 1vw 1vw",
+          margin: "3vh 0 -2vh 2vw",
           backgroundColor: "white",
           borderRadius: "50%",
           cursor: "pointer",
         },
         media: {
-          height: "18vh",
-          width: "11vw",
-          margin: "1vw",
-          [theme.breakpoints.up("md")]: { marginRight: "3vw" },
-          [theme.breakpoints.down("md")]: { width: "86%", height: "30vh", justifySelf: "center" },
-          // [theme.breakpoints.between('md', 'lg')]: { height: '86%', width: "auto" },
+          display: "block",
+          width: "18%",
+          padding: "30%",
+          margin: "0 0 2% 10%",
         },
         text: {
           fontSize: 16,
           [theme.breakpoints.down("md")]: { fontSize: 14 },
-          // marginRight: "2vw"
         },
         cardContent: {
           [theme.breakpoints.down("sm")]: {
-            textAlign: "end",
+            textAlign: "start",
+          },
+          [theme.breakpoints.up("md")]: {
+            textAlign: "start",
+            marginRight: "2vw",
           },
         },
 
@@ -65,61 +71,57 @@ export default makeStyles((theme) =>
     : {
         //cart item styles for every other browser
         container: {
-          display: "inherit",
+          display: "flex",
           flexDirection: "column",
-          width: "90vw",
-          marginLeft: "0",
-          paddingLeft: "0",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "82vw",
           marginTop: "3vh",
-          [theme.breakpoints.down("sm")]: {
+          [theme.breakpoints.down("md")]: {
             width: "90%",
           },
         },
         cartItem: {
-          // flexDirection: "row",
+          flexDirection: "row",
           [theme.breakpoints.down("sm")]: {
-            marginTop: "2vh",
+            flexDirection: "column",
+            marginTop: "1.5vh",
             paddingTop: "1vh",
             paddingBottom: "1vh",
-            flexDirection: "column",
           },
-          [theme.breakpoints.between("sm", "lg")]: {
+          [theme.breakpoints.between("xs", "md")]: {
             width: "60vw",
           },
         },
         picAndButton: {
-          display: "block",
-          // float: "left",
-          maxHeight: "50vh",
-          maxWidth: "46vw",
-          width: "auto",
-          height: "auto",
+          width: "32%",
+          float: "left",
+          alignItems: "center",
+          [theme.breakpoints.down("sm")]: { width: "100%", justifyContent: "center" },
         },
         removeButton: {
-          float: "left",
-          margin: "0 1vw 1vw 1vw",
+          margin: "3vh 0 -2vh 2vw",
           backgroundColor: "white",
           borderRadius: "50%",
           cursor: "pointer",
         },
         media: {
           display: "block",
-          maxHeight: "30vh",
-          maxWidth: "28vw",
-          width: "auto",
-          height: "auto",
-          margin: "1vw",
-          [theme.breakpoints.down("md")]: { width: "86%", height: "30vh", justifySelf: "center" },
-          // [theme.breakpoints.between('md', 'lg')]: { height: '86%', width: "auto" },
+          width: "18%",
+          padding: "30%",
+          margin: "0 0 2% 10%",
         },
         text: {
           fontSize: 16,
           [theme.breakpoints.down("md")]: { fontSize: 14 },
-          // marginRight: "2vw"
         },
         cardContent: {
           [theme.breakpoints.down("sm")]: {
-            textAlign: "end",
+            textAlign: "start",
+          },
+          [theme.breakpoints.up("md")]: {
+            textAlign: "start",
+            marginRight: "2vw",
           },
         },
 

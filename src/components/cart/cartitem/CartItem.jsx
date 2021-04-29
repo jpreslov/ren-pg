@@ -18,22 +18,19 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
         </div>
         <CardContent className={classes.cardContent}>
           <Typography className={classes.text}>{item.name}</Typography>
-          {item.selected_options.map((selected_option) => {
+          {item.selected_options.map((selected_option) => (
             <Typography className={classes.text} variant="subtitle2">
               {selected_option.group_name}: {selected_option.option_name}
-            </Typography>;
-          })}
+            </Typography>
+          ))}
           <Typography className={classes.text} variant="subtitle1">
             {item.line_total.formatted_with_symbol}
           </Typography>
-        </CardContent>
-        <CardActions className={classes.cardActions}>
           <Input className={classes.qtyInput} defaultValue={item.quantity} onChange={(e) => handleUpdateCartQty(item.id, e.target.value)} />
-        </CardActions>
+        </CardContent>
       </Card>
     </div>
   );
 };
-// };
 
 export default CartItem;
