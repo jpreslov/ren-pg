@@ -10,7 +10,7 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
   const handleRemoveFromCart = (lineItemId) => onRemoveFromCart(lineItemId);
 
   return (
-    <div className={classes.container} container justify="center">
+    <div className={classes.container}>
       <Card className={classes.cartItem}>
         <div className={classes.picAndButton}>
           <HighlightOffIcon className={classes.removeButton} onClick={() => handleRemoveFromCart(item.id)} />

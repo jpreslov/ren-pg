@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { Grid, Card, CardMedia, CardContent, CardActions, Typography, Button, ButtonBase, Select, MenuItem, InputLabel } from '@material-ui/core';
-import { commerce } from '../../../lib/commerce';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Grid, Card, CardMedia, CardContent, CardActions, Typography, Button, ButtonBase, Select, MenuItem, InputLabel } from "@material-ui/core";
+import { commerce } from "../../../lib/commerce";
 
 // import { AddShoppingCart } from '@material-ui/icons';
 
-import useStyles from './productDetailsStyles';
+import useStyles from "./productDetailsStyles";
 
 const ProductDetails = ({ onAddToCart }) => {
   const [product, setProduct] = useState({});
-  const [size, setSize] = useState('');
-  const [variantGroupInfo, setVariantGroupInfo] = useState({ id: '', name: '' });
-  const [optionInfo, setOptionInfo] = useState({ id: '', name: '' });
+  const [size, setSize] = useState("");
+  const [variantGroupInfo, setVariantGroupInfo] = useState({ id: "", name: "" });
+  const [optionInfo, setOptionInfo] = useState({ id: "", name: "" });
   const classes = useStyles();
   const { id } = useParams();
 
@@ -47,7 +47,11 @@ const ProductDetails = ({ onAddToCart }) => {
                   {product.variant_groups?.map((variant_group, index) => (
                     <div className={classes.inputDiv} key={index}>
                       <InputLabel>{variant_group.name}</InputLabel>
-                      <Select label={variant_group.name} onChange={(e) => setSize(e.target.value)} onClose={() => setVariantGroupInfo({ id: variant_group.id, name: variant_group.name })}>
+                      <Select
+                        label={variant_group.name}
+                        onChange={(e) => setSize(e.target.value)}
+                        onClose={() => setVariantGroupInfo({ id: variant_group.id, name: variant_group.name })}
+                      >
                         {variant_group.options.map((option, index) => (
                           <MenuItem
                             key={index}

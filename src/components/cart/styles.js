@@ -8,6 +8,7 @@ export default makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
+    width: "100%",
   },
   title: {
     marginTop: "20vh",
@@ -17,7 +18,7 @@ export default makeStyles((theme) => ({
   cartDetails: {
     width: "70vw",
     flexDirection: "row",
-    justifyContent: "end",
+    // justifyContent: "end",
     textAlign: "end",
     marginTop: "3vh",
   },

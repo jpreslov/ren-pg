@@ -18,7 +18,7 @@ export default makeStyles((theme) => ({
     minWidth: "30vw",
     justifyContent: "center",
     flexWrap: "wrap",
-    marginInline: "4vw",
+    // marginInline: "4vw",
     [theme.breakpoints.between("xs", "md")]: {
       height: "auto",
       width: "70vw",

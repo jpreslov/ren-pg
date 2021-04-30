@@ -36,16 +36,8 @@ export default makeStyles((theme) => ({
 
 
   media: {
-    height: "10px",
-    padding: "36.25%",
-    [theme.breakpoints.between("xs", "sm")]: {
-      padding: "40%",
-      width: "60vw",
-    },
-    [theme.breakpoints.between("md", "xl")]: {
-      width: "30vw",
-      padding: "30%",
-    },
+    width: "100%",
+    padding: "45.25%",
   },
   text: {
     [theme.breakpoints.down("sm")]: {

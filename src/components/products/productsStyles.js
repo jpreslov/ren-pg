@@ -12,11 +12,11 @@ export default makeStyles((theme) => ({
     display: "inherit",
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(12),
-
-    [theme.breakpoints.between("sm", "xl")]: {
-      marginTop: "6vh",
-      justifyContent: "center",
+    padding: theme.spacing(10),
+    justifyContent: "center",
+    
+    [theme.breakpoints.between("xs", "xl")]: {
+      marginTop: "1vh",
     },
     [theme.breakpoints.up("xl")]: {
       marginTop: "10vh",
