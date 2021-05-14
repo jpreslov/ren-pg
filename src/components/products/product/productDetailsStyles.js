@@ -22,7 +22,7 @@ export default makeStyles((theme) => ({
     backgroundColor: theme.palette.background.default,
     fontWeight: "500",
     marginInline: "auto",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.between("sm", "md")]: {
       marginTop: "26vh",
     },
     [theme.breakpoints.between("md", "lg")]: {
@@ -37,10 +37,10 @@ export default makeStyles((theme) => ({
 
   media: {
     width: `100%`,
-    padding: `5.25%`,
-    [theme.breakpoints.down('md')]: {
-      padding: '0'
-    }
+    padding: `45.25%`,
+    // [theme.breakpoints.down('md')]: {
+    //   padding: '0'
+    // }
   },
   text: {
     [theme.breakpoints.down("sm")]: {
