@@ -23,13 +23,13 @@ export default makeStyles((theme) => ({
     fontWeight: "500",
     marginInline: "auto",
     [theme.breakpoints.down("sm")]: {
-      marginTop: "22vh",
+      marginTop: "26vh",
     },
     [theme.breakpoints.between("md", "lg")]: {
-      marginTop: "22vh",
+      marginTop: "28vh",
     },
     [theme.breakpoints.up("lg")]: {
-      marginTop: "20vh",
+      marginTop: "30vh",
       justifyContent: "center",
     },
   },
@@ -38,6 +38,9 @@ export default makeStyles((theme) => ({
   media: {
     width: `100%`,
     padding: `5.25%`,
+    [theme.breakpoints.down('md')]: {
+      padding: '0'
+    }
   },
   text: {
     [theme.breakpoints.down("sm")]: {
