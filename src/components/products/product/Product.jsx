@@ -15,7 +15,8 @@ const Product = ({ product, onAddToCart, id }) => {
     <>
         <Link className={classes.link} to={`/${id}`}>
           <Card className={classes.root}>
-            <CardMedia className={classes.media} image={product.media.source} title={product.name} />
+            <img className={classes.media} src={product.media.source} title={product.name} />
+            {/* <CardMedia className={classes.media} image={product.media.source} title={product.name} /> */}
             <CardContent>
               <div className={classes.cardContent}>
                 <Typography className={classes.text} gutterBottom variant="h6">

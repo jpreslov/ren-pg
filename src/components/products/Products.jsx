@@ -13,7 +13,7 @@ const Products = ({ products, onAddToCart }) => {
   return (
     <main className={classes.content}>
       {/* <div className={classes.toolbar} /> */}
-      <Grid className={classes.grid} container justify="center" spacing={6} xs={12} sm={6} md={10} lg={10}>
+      <Grid className={classes.grid} container justify="center" spacing={6} xs={12} sm={6} md={10} lg={12} item={true}>
         {products.map((product, key) => (
           <Product key={key} id={product.id} product={product} />
         ))}

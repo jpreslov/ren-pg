@@ -11,11 +11,6 @@ export default makeStyles((theme) => ({
     justifyContent: 'center',
     alignContent: 'center',
     boxShadow: 'none',
-    // [theme.breakpoints.up('sm')]: {
-    //   width: `calc(100% - ${drawerWidth}px)`,
-    //   // marginLeft: drawerWidth,
-    // },
-    margin: 'auto',
   },
   title: {
     flexGrow: 1,
@@ -25,7 +20,7 @@ export default makeStyles((theme) => ({
   },
   image: {
     padding: '3vh',
-    width: '50%',
+    width: `50%`,
     opacity: '0.8',
     [theme.breakpoints.down('sm')]: {
       width: `80%`,
@@ -34,7 +29,7 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.between('sm', 'xl')]: {
       width: `50%`,
       height: `10%`,
-    }
+    },
   },
   buttonGroup: {
     textDecoration: 'none',
@@ -47,11 +42,10 @@ export default makeStyles((theme) => ({
     textTransform: 'capitalize',
     [theme.breakpoints.down('sm')]: {
       width: '20vw',
-      fontSize: 14
+      fontSize: 14,
     },
     [theme.breakpoints.between('md', 'xl')]: {
-      fontSize: 18
-      
+      fontSize: 18,
     },
   },
   badge: {
@@ -62,19 +56,6 @@ export default makeStyles((theme) => ({
     },
     [theme.breakpoints.between('md', 'xl')]: {
       marginLeft: '0.2vw',
-    },
-  },
-  inputRoot: {
-    color: 'inherit',
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
     },
   },
 }));

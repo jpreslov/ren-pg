@@ -15,7 +15,6 @@ const Navbar = ({ totalItems }) => {
         {/* <Toolbar className={classes.toolBar}> */}
         <Typography component={Link} to="/" className={classes.title}>
           <img src={logo} alt="Rendezvous P.G." className={classes.image} />
-          {/* Rendezvous PG */}
         </Typography>
         <div className={classes.grow} />
         {/* </Toolbar> */}

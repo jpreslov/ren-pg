@@ -6,7 +6,7 @@ export default makeStyles((theme) => ({
     // marginTop: "30vh",
     backgroundColor: "inherit",
     boxShadow: "none",
-    maxHeight: "90%",
+    maxHeight: `90%`,
     maxWidth: "60vw",
     justifyContent: "center",
     alignContent: "center",
@@ -23,21 +23,21 @@ export default makeStyles((theme) => ({
     fontWeight: "500",
     marginInline: "auto",
     [theme.breakpoints.down("sm")]: {
-      marginTop: "26vh",
+      marginTop: "22vh",
     },
     [theme.breakpoints.between("md", "lg")]: {
-      marginTop: "28vh",
+      marginTop: "22vh",
     },
     [theme.breakpoints.up("lg")]: {
-      marginTop: "30vh",
+      marginTop: "20vh",
       justifyContent: "center",
     },
   },
 
 
   media: {
-    width: "100%",
-    padding: "45.25%",
+    width: `100%`,
+    padding: `5.25%`,
   },
   text: {
     [theme.breakpoints.down("sm")]: {
@@ -48,7 +48,7 @@ export default makeStyles((theme) => ({
     flexDirection: "column",
     textAlign: "start",
     float: "left",
-    width: "100%",
+    width: `100%`,
     marginTop: "1vh",
   },
   cardContent: {

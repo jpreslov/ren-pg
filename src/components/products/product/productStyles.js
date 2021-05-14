@@ -35,16 +35,12 @@ export default makeStyles((theme) => ({
     textDecoration: "none",
   },
   media: {
-    width: "100%",
-    height: "90%",
-    paddingTop: "50%", // 16:9
-    paddingBottom: "40%", // 16:9
-    paddingInline: "6.25%", // 16:9
-    [theme.breakpoints.between("md", "xl")]: {
-      maxWidth: "50vw",
-      maxHeight: "40vh",
-      paddingInline: "2vw"
-    },
+    width: "98%",
+    height: "100%",
+    // [theme.breakpoints.between("md", "xl")]: {
+    //   maxWidth: "50vw",
+    //   maxHeight: "55vh",
+    // },
   },
   text: {
     [theme.breakpoints.down("sm")]: {

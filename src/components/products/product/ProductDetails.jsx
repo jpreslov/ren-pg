@@ -29,9 +29,10 @@ const ProductDetails = ({ onAddToCart }) => {
   return (
     <>
       <main className={classes.content}>
-        <Grid className={classes.grid}>
+        <Grid className={classes.grid} item={true}>
           <Card className={classes.root}>
-            <CardMedia className={classes.media} image={product.media?.source} title={product.name} />
+            <img className={classes.media} src={product.media?.source} title={product.name} />
+            {/* <CardMedia className={classes.media} image={product.media?.source} title={product.name} /> */}
             <CardContent>
               <div className={classes.cardContent}>
                 <Typography className={classes.text} gutterBottom>
