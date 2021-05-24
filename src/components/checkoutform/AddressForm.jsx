@@ -82,7 +82,7 @@ const AddressForm = ({ checkoutToken, next }) => {
             <FormInput name="zip" label="ZIP code" />
             <Grid item sx={12} sm={6}>
               <InputLabel>Shipping Country</InputLabel>
-              <Select name="country" value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}>
+              <Select name="country" defaultValue="Select an option" value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}>
                 {countries.map((country) => (
                   <MenuItem  key={country.id} value={country.id}>
                     {country.label}
@@ -94,7 +94,7 @@ const AddressForm = ({ checkoutToken, next }) => {
               <InputLabel>Shipping Subdivision</InputLabel>
               <Select value={shippingSubdivision} fullWidth onChange={(e) => setShippingSubdivision(e.target.value)}>
                 {subdivisions.map((subdivision) => (
-                  <MenuItem  key={subdivision.id} value={subdivision.id}>
+                  <MenuItem defaultValue="Select an option" key={subdivision.id} value={subdivision.id}>
                     {subdivision.label}
                   </MenuItem>
                 ))}
@@ -104,7 +104,7 @@ const AddressForm = ({ checkoutToken, next }) => {
               <InputLabel>Shipping Options</InputLabel>
               <Select value={shippingOption} fullWidth onChange={(e) => setShippingOption(e.target.value)}>
                 {options.map((option) => (
-                  <MenuItem key={option.id} value={option.id}>
+                  <MenuItem defaultValue="Select an option" key={option.id} value={option.id}>
                     {option.label}
                   </MenuItem>
                 ))}

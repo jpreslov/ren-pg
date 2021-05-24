@@ -16,6 +16,7 @@
     "react-device-detect": "^1.17.0",
     "react-dom": "^17.0.1",
     "react-hook-form": "^6.15.5",
+    "react-material-ui-carousel": "^2.2.6",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "sass-loader": "^11.0.1",

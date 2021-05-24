@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { Grid, Card, CardMedia, CardContent, CardActions, Typography, Button, ButtonBase, Select, MenuItem, InputLabel } from "@material-ui/core";
-import { commerce } from "../../../lib/commerce";
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Grid, Card, CardMedia, CardContent, CardActions, Typography, Button, ButtonBase, Select, MenuItem, InputLabel } from '@material-ui/core';
+import { commerce } from '../../../lib/commerce';
 
 // import { AddShoppingCart } from '@material-ui/icons';
 
-import useStyles from "./productDetailsStyles";
+import useStyles from './productDetailsStyles';
+import Carousel from 'react-material-ui-carousel';
 
 const ProductDetails = ({ onAddToCart }) => {
   const [product, setProduct] = useState({});
-  const [size, setSize] = useState("");
-  const [variantGroupInfo, setVariantGroupInfo] = useState({ id: "", name: "" });
-  const [optionInfo, setOptionInfo] = useState({ id: "", name: "" });
+  const [size, setSize] = useState(' ');
+  const [variantGroupInfo, setVariantGroupInfo] = useState({ id: ' ', name: ' ' });
+  const [optionInfo, setOptionInfo] = useState({ id: ' ', name: ' ' });
+  const [disabled, toggleDisabled] = useState(true);
   const classes = useStyles();
   const { id } = useParams();
 
@@ -20,6 +22,25 @@ const ProductDetails = ({ onAddToCart }) => {
   const fetchProduct = async () => {
     const product = await commerce.products.retrieve(`${id}`);
     setProduct(product);
+  };
+
+  const multiplePics = () => (
+    <Carousel className={classes.carousel} autoPlay={false} >
+      {product.assets.map((asset) => (
+        <CardMedia className={classes.media} image={asset.url} title={product.name} />
+      ))}
+    </Carousel>
+  );
+
+  const singlePic = () => <img className={classes.media} src={product.media?.source} title={product.name} />;
+
+  const switchDisabled = () => {
+    toggleDisabled(!disabled);
+  };
+
+  const pickSizeToggleButton = (e) => {
+    setSize(e.target.value);
+    switchDisabled();
   };
 
   useEffect(() => {
@@ -31,8 +52,7 @@ const ProductDetails = ({ onAddToCart }) => {
       <main className={classes.content}>
         <Grid className={classes.grid} item={true}>
           <Card className={classes.root}>
-            {/* <img className={classes.media} src={product.media?.source} title={product.name} /> */}
-            <CardMedia className={classes.media} image={product.media?.source} title={product.name} />
+            {product.assets?.length > 1 ? multiplePics() : singlePic()}
             <CardContent>
               <div className={classes.cardContent}>
                 <Typography className={classes.text} gutterBottom>
@@ -50,7 +70,9 @@ const ProductDetails = ({ onAddToCart }) => {
                       <InputLabel>{variant_group.name}</InputLabel>
                       <Select
                         label={variant_group.name}
-                        onChange={(e) => setSize(e.target.value)}
+                        onChange={(e) => {
+                          pickSizeToggleButton(e);
+                        }}
                         onClose={() => setVariantGroupInfo({ id: variant_group.id, name: variant_group.name })}
                       >
                         {variant_group.options.map((option, index) => (
@@ -69,7 +91,7 @@ const ProductDetails = ({ onAddToCart }) => {
                     </div>
                   ))}
                 </div>
-                <Button className={classes.button} aria-label="Add to Cart" onClick={handleAddToCart}>
+                <Button disabled={disabled} className={classes.button} aria-label="Add to Cart" onClick={handleAddToCart}>
                   Add to Cart
                 </Button>
               </CardActions>

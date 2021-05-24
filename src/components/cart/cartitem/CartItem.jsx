@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Typography, Button, Card, CardActions, CardContent, CardMedia, Input } from "@material-ui/core";
+import React from "react";
+import { Typography, Card, CardContent, CardMedia, Input } from "@material-ui/core";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import useStyles from "./styles";
-import { isSafari } from "react-device-detect";
 
 const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
   const classes = useStyles();
