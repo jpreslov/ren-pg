@@ -30,7 +30,7 @@ body {
 #bear {
   height: 40vh;
   margin-top: 7vh;
-  animation-duration: 3s;
+  animation-duration: 6s;
   animation-name: swell;
   animation-iteration-count: infinite;
   animation-direction: alternate;
@@ -38,13 +38,9 @@ body {
 
 @keyframes swell {
   from {
-    left: 10vw;
-    height: 30vh
   }
   
   to {
-    left: 1vw;
-    height: 40vh;
     transform: rotateY(180deg);
   }
 }
@@ -88,6 +84,6 @@ body {
     font-size: 20px;
     position: absolute;
     text-align: center;
-    margin-top: 40vh;
+    margin-top: 48vh;
   }
 }

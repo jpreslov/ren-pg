@@ -1,7 +1,7 @@
 import React from 'react';
-import { Grid, Card, CardMedia, CardContent, CardActions, Typography, Button, ButtonBase } from '@material-ui/core';
+import { Card, CardContent, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import { commerce } from '../../../lib/commerce';
+// import { commerce } from '../../../lib/commerce';
 
 // import { AddShoppingCart } from '@material-ui/icons';
 

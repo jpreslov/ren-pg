@@ -46,7 +46,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
       <>
         <div className={classes.confirmation}>
           <Typography variant="h5">Thank you for your purchase!</Typography>
-          <img src={Circle} style={{ height: '10vw' }} />
+          <img alt="circle logo" src={Circle} style={{ height: '10vw' }} />
           <Typography variant="h5">You will receive an email shortly with shipping information.</Typography>
           <Divider className={classes.divider} />
           <Typography variant="subtitle2">Order: {order.customer_reference}</Typography>

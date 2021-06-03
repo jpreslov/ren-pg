@@ -25,9 +25,9 @@ const ProductDetails = ({ onAddToCart }) => {
   };
 
   const multiplePics = () => (
-    <Carousel className={classes.carousel} autoPlay={false} >
-      {product.assets.map((asset) => (
-        <CardMedia className={classes.media} image={asset.url} title={product.name} />
+    <Carousel className={classes.carousel} autoPlay={false}>
+      {product.assets.map((asset, id) => (
+        <CardMedia key={id} className={classes.carouselPics} image={asset.url} title={product.name} />
       ))}
     </Carousel>
   );
@@ -35,7 +35,7 @@ const ProductDetails = ({ onAddToCart }) => {
   const singlePic = () => <img className={classes.media} src={product.media?.source} title={product.name} />;
 
   const switchDisabled = () => {
-    toggleDisabled(!disabled);
+    toggleDisabled(false);
   };
 
   const pickSizeToggleButton = (e) => {
@@ -70,6 +70,7 @@ const ProductDetails = ({ onAddToCart }) => {
                       <InputLabel>{variant_group.name}</InputLabel>
                       <Select
                         label={variant_group.name}
+                        defaultValue={" "}
                         onChange={(e) => {
                           pickSizeToggleButton(e);
                         }}

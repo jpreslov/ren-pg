@@ -6,7 +6,7 @@ export default makeStyles((theme) => ({
     backgroundColor: 'inherit',
     boxShadow: 'none',
     maxHeight: `90%`,
-    maxWidth: '60vw',
+    maxWidth: '100vw',
     justifyContent: 'center',
     alignContent: 'center',
     flexWrap: 'wrap',
@@ -33,15 +33,24 @@ export default makeStyles((theme) => ({
     },
   },
 
-  carousel: {
-    top: 'unset',
-  },
+  // carousel: {
+  //   top: 'unset',
+  //   width: `100%`
+  // },
 
   media: {
     width: `30vw`,
+    // padding: `5.25%`,
+    [theme.breakpoints.down('md')]: {
+      width: `80vw`,
+      padding: '0'
+    },
+  },
+ carouselPics: {
+    width: `30vw`,
     padding: `45.25%`,
     [theme.breakpoints.down('md')]: {
-      width: `70vw`,
+      width: `85vw`,
     },
   },
 

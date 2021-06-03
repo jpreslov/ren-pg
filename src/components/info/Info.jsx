@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, ButtonGroup, Button, Label, SvgIcon, Typography } from "@material-ui/core";
+import { Grid, ButtonGroup, Button, SvgIcon } from "@material-ui/core";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import { isSafari } from "react-device-detect";
