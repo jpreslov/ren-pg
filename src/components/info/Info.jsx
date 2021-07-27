@@ -27,7 +27,7 @@ const Info = () => {
     <>
       <div className="container">
         <div className="button-group">
-          <Button className="button" target="_blank" href="http://www.instagram.com/jp.lovett">
+          <Button className="button" target="_blank" href="http://www.instagram.com/figureglow">
             <SvgIcon className={classes.svgIcon} component={InstagramIcon} />
           </Button>
           <Button className="button" href="mailto:jpreslov@gmail.com">
