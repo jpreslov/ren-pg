@@ -7,15 +7,15 @@ import { Link } from 'react-router-dom';
 
 import useStyles from './productStyles';
 
-const Product = ({ product, onAddToCart, id }) => {
+const Product = ({ product, onAddToCart, permalink }) => {
   const classes = useStyles();
-
+  const placeholder = ""
 
   return (
     <>
-        <Link className={classes.link} to={`/${id}`}>
+        <Link className={classes.link} to={`/${permalink}`}>
           <Card className={classes.root}>
-            <img className={classes.media} src={product.media.source} title={product.name} />
+            <img className={classes.media} src={product.media.source || placeholder} onError={e => e.target.src = {placeholder}} title={product.name} alt={product.name}/>
             {/* <CardMedia className={classes.media} image={product.media.source} title={product.name} /> */}
             <CardContent>
               <div className={classes.cardContent}>

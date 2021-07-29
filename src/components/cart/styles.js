@@ -6,8 +6,8 @@ export default makeStyles((theme) => ({
   cartGrid1: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
+    margin: "auto",
+    flexDirection: "row",
     width: "100%",
   },
   title: {

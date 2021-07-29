@@ -90,7 +90,7 @@ const App = () => {
           <Route path="/checkout" exact>
             <Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMessage} />
           </Route>
-          <Route exact path="/:id">
+          <Route exact path="/:permalink">
             <ProductDetails onAddToCart={handleAddToCart} handleUpdateCartQty />
           </Route>
         </Switch>

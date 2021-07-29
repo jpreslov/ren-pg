@@ -1,10 +1,10 @@
 import React from 'react';
-import { AppBar, Toolbar, Button, MenuItem, Menu, Typography, ButtonGroup, Badge } from '@material-ui/core';
+import { AppBar, Toolbar, Button, Typography, ButtonGroup, Badge } from '@material-ui/core';
 // import { ShoppingCart } from '@material-ui/icons';
 
 import logo from '../../assets/ren-logo-2.png';
 import useStyles from './styles';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ totalItems }) => {
   const classes = useStyles();

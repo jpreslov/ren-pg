@@ -15,24 +15,24 @@ const ProductDetails = ({ onAddToCart }) => {
   const [optionInfo, setOptionInfo] = useState({ id: ' ', name: ' ' });
   const [disabled, toggleDisabled] = useState(true);
   const classes = useStyles();
-  const { id } = useParams();
+  const { permalink } = useParams();
 
   const handleAddToCart = () => onAddToCart(product.id, 1, variantGroupInfo, optionInfo);
 
   const fetchProduct = async () => {
-    const product = await commerce.products.retrieve(`${id}`);
+    const product = await commerce.products.retrieve(`${permalink}`, {type: 'permalink'});
     setProduct(product);
   };
 
   const multiplePics = () => (
-    <Carousel className={classes.carousel} autoPlay={false}>
+    <Carousel className={classes.carousel} autoPlay={false} animation="slide">
       {product.assets.map((asset, id) => (
         <CardMedia key={id} className={classes.carouselPics} image={asset.url} title={product.name} />
       ))}
     </Carousel>
   );
 
-  const singlePic = () => <img className={classes.media} src={product.media?.source} title={product.name} />;
+  const singlePic = () => <img className={classes.media} src={product.media?.source} title={product.name} alt={product.name} />;
 
   const switchDisabled = () => {
     toggleDisabled(false);
