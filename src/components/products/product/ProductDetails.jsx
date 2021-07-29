@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { Grid, Card, CardMedia, CardContent, CardActions, Typography, Button, ButtonBase, Select, MenuItem, InputLabel } from '@material-ui/core';
-import { commerce } from '../../../lib/commerce';
-
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Grid, Card, CardMedia, CardContent, CardActions, Typography, Button, Select, MenuItem, InputLabel } from "@material-ui/core";
+import { commerce } from "../../../lib/commerce";
+import useStyles from "./productDetailsStyles";
+import Carousel from "react-material-ui-carousel";
+// import productStyles from "./productStyles";
+const download = require('image-downloader')
 // import { AddShoppingCart } from '@material-ui/icons';
 
-import useStyles from './productDetailsStyles';
-import Carousel from 'react-material-ui-carousel';
 
 const ProductDetails = ({ onAddToCart }) => {
   const [product, setProduct] = useState({});
-  const [size, setSize] = useState(' ');
-  const [variantGroupInfo, setVariantGroupInfo] = useState({ id: ' ', name: ' ' });
-  const [optionInfo, setOptionInfo] = useState({ id: ' ', name: ' ' });
+  const [size, setSize] = useState(" ");
+  const [images, setImages] = useState([]);
+  const [variantGroupInfo, setVariantGroupInfo] = useState({ id: " ", name: " " });
+  const [optionInfo, setOptionInfo] = useState({ id: " ", name: " " });
   const [disabled, toggleDisabled] = useState(true);
   const classes = useStyles();
   const { permalink } = useParams();
@@ -20,8 +22,25 @@ const ProductDetails = ({ onAddToCart }) => {
   const handleAddToCart = () => onAddToCart(product.id, 1, variantGroupInfo, optionInfo);
 
   const fetchProduct = async () => {
-    const product = await commerce.products.retrieve(`${permalink}`, {type: 'permalink'});
+    const product = await commerce.products.retrieve(`${permalink}`, { type: "permalink" });
     setProduct(product);
+    getImages()
+  };
+
+  const getImages = () => {
+    // let imgArr = []
+    product.assets?.map((asset) => {
+      // imgArr.push(asset.url)
+
+      const options = {
+        url: `${asset.url}`,
+        dest: `./images/${asset.filename}`,
+      };
+
+      download.image(options)
+        .then(({ filename }) => console.log(`Saved to ${filename}`))
+        .catch((err) => console.error(err));
+    });
   };
 
   const multiplePics = () => (
@@ -45,6 +64,7 @@ const ProductDetails = ({ onAddToCart }) => {
 
   useEffect(() => {
     fetchProduct();
+  
   }, []);
 
   return (
@@ -70,7 +90,7 @@ const ProductDetails = ({ onAddToCart }) => {
                       <InputLabel>{variant_group.name}</InputLabel>
                       <Select
                         label={variant_group.name}
-                        defaultValue={" "}
+                        defaultValue=""
                         onChange={(e) => {
                           pickSizeToggleButton(e);
                         }}
@@ -83,7 +103,7 @@ const ProductDetails = ({ onAddToCart }) => {
                               setOptionInfo({ id: option.id, name: option.name });
                             }}
                             value={option.name}
-                            defaultValue="Select option"
+                            defaultValue=""
                           >
                             {option.name}
                           </MenuItem>
