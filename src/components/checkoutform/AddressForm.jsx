@@ -3,7 +3,6 @@ import { InputLabel, Select, MenuItem, Button, Grid, Typography, TextField } fro
 import { useForm, FormProvider } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { commerce } from "../../lib/commerce";
-import validator from "validator";
 import FormInput from "./FormInput";
 
 const AddressForm = ({ checkoutToken, next }) => {
@@ -13,7 +12,9 @@ const AddressForm = ({ checkoutToken, next }) => {
   const [shippingSubdivision, setShippingSubdivision] = useState("");
   const [shippingOptions, setShippingOptions] = useState([]);
   const [shippingOption, setShippingOption] = useState("");
-  const [invalidEmail, setInvalidEmail] = useState(true);
+  const [invalidEmail, setInvalidEmail] = useState(false);
+  const [emailInfo, setEmailInfo] = useState();
+  const [email, setEmail] = useState("");
   // const { control } = useFormContext();
 
   const methods = useForm();
@@ -52,17 +53,6 @@ const AddressForm = ({ checkoutToken, next }) => {
     setShippingOption(options[0].id);
   };
 
-  const validateEmail = (e) => {
-    let email = e.target.value;
-
-    if (validator.isEmail(email)) {
-      setInvalidEmail(false);
-      console.log(invalidEmail);
-    } else {
-      setInvalidEmail(true);
-    }
-  };
-
   useEffect(() => {
     fetchShippingCountries(checkoutToken.id);
   }, []);
@@ -79,26 +69,55 @@ const AddressForm = ({ checkoutToken, next }) => {
     if (shippingSubdivision) fetchShippingOptions(checkoutToken.id, shippingCountry, shippingSubdivision);
   }, [shippingSubdivision]);
 
+  useEffect(async () => {
+    let data = await fetch(
+      `https://emailvalidation.abstractapi.com/v1/?api_key=c5582c2eafff48f7a75816d0358f7b56&email=${email}`
+    );
+    setEmailInfo(data);
+  });
   return (
     <>
       <Typography variant="h6" gutterBottom>
         Shipping Address
       </Typography>
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit((data) => next({ ...data, shippingCountry, shippingSubdivision, shippingOption }))}>
+        <form
+          onSubmit={methods.handleSubmit((data) =>
+            next({
+              ...data,
+              shippingCountry,
+              shippingSubdivision,
+              shippingOption,
+            })
+          )}
+        >
           <Grid container spacing={3}>
             <FormInput name="firstName" label="First name" />
             <FormInput name="lastName" label="Last name" />
             <FormInput name="address1" label="Address" />
             <Grid item xs={12} sm={6}>
-              <TextField defaultValue="" fullWidth size="small" name="email" label="Email" required onChange={(e) => validateEmail(e)} />
+              <TextField
+                defaultValue=""
+                fullWidth
+                size="small"
+                name="email"
+                label="Email"
+                required
+                onChange={(e) => setEmail(e.target.value)}
+              />
               {/* <Controller as={TextField} defaultValue="" fullWidth size="small" name="email" label="Email" required onChange={(e) => validateEmail(e)} /> */}
             </Grid>
             <FormInput name="city" label="City" />
             <FormInput name="zip" label="ZIP code" />
             <Grid item sx={12} sm={6}>
               <InputLabel>Shipping Country</InputLabel>
-              <Select name="country" defaultValue="" value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}>
+              <Select
+                name="country"
+                defaultValue=""
+                value={shippingCountry}
+                fullWidth
+                onChange={(e) => setShippingCountry(e.target.value)}
+              >
                 {countries.map((country) => (
                   <MenuItem key={country.id} value={country.id}>
                     {country.label}

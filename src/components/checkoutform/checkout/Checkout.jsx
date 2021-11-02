@@ -15,6 +15,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
   const [activeStep, setActiveStep] = useState(0);
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [shippingData, setShippingData] = useState({});
+  const [err, setErr] = useState([])
   const classes = useStyles();
 
   useEffect(() => {
@@ -23,8 +24,8 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         const token = await commerce.checkout.generateTokenFrom('cart', cart.id);
 
         setCheckoutToken(token);
-        console.log(token);
       } catch (error) {
+        setErr(error)
         console.error(error);
       }
     };
@@ -58,6 +59,10 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
       </>
     ) : (
       <div className={classes.spinner}>
+        <h3>{err.message}</h3>
+        <br />
+        <h4>Please enter a valid email address.</h4>
+        <br />
         <CircularProgress />
       </div>
     );
